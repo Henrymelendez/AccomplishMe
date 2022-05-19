@@ -9,5 +9,8 @@
 <body>
 
 <h1>WELCOME TO Accomplish ME!</h1>
+
+${DEBUG}
+
 </body>
 </html>
