@@ -10,10 +10,10 @@
 	<!-- end Entities -->
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/FIXME - MASON?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
-			<property name="javax.persistence.jdbc.user" value="FIXME - MASON" />
+				value="jdbc:mysql://localhost:3306/accomplishmedb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
+			<property name="javax.persistence.jdbc.user" value="accomplishuser" />
 			<property name="javax.persistence.jdbc.password"
-				value="FIXME - MASON" />
+				value="accomplishuser" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
 
