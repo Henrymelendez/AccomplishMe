@@ -1,0 +1,3 @@
+rootProject.name = 'AccomplishMe'
+
+includeFlat 'JPAAccomplishMe'
