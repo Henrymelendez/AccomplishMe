@@ -229,32 +229,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `challenge_category`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `challenge_category` ;
-
-CREATE TABLE IF NOT EXISTS `challenge_category` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `challenge_id` INT NOT NULL,
-  `challenge_type_id` INT NOT NULL,
-  `number_of_workouts` INT NULL,
-  INDEX `fk_challenge_has_challenge_type_challenge_type1_idx` (`challenge_type_id` ASC),
-  INDEX `fk_challenge_has_challenge_type_challenge1_idx` (`challenge_id` ASC),
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_challenge_has_challenge_type_challenge1`
-    FOREIGN KEY (`challenge_id`)
-    REFERENCES `challenge` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_challenge_has_challenge_type_challenge_type1`
-    FOREIGN KEY (`challenge_type_id`)
-    REFERENCES `category` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `challenge_detail`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `challenge_detail` ;
@@ -336,6 +310,30 @@ CREATE TABLE IF NOT EXISTS `challenge_log_detail` (
   CONSTRAINT `fk_challenge_log_detail_challenge_log1`
     FOREIGN KEY (`challenge_log_id`)
     REFERENCES `challenge_log` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `challenge_category`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `challenge_category` ;
+
+CREATE TABLE IF NOT EXISTS `challenge_category` (
+  `category_id` INT NOT NULL,
+  `challenge_id` INT NOT NULL,
+  PRIMARY KEY (`category_id`, `challenge_id`),
+  INDEX `fk_category_has_challenge_challenge1_idx` (`challenge_id` ASC),
+  INDEX `fk_category_has_challenge_category1_idx` (`category_id` ASC),
+  CONSTRAINT `fk_category_has_challenge_category1`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `category` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_category_has_challenge_challenge1`
+    FOREIGN KEY (`challenge_id`)
+    REFERENCES `challenge` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -466,19 +464,6 @@ COMMIT;
 START TRANSACTION;
 USE `accomplishmedb`;
 INSERT INTO `challenge_log_comment` (`comment_id`, `challenge_log_id`) VALUES (1, 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `challenge_category`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `accomplishmedb`;
-INSERT INTO `challenge_category` (`id`, `challenge_id`, `challenge_type_id`, `number_of_workouts`) VALUES (1, 1, 1, NULL);
-INSERT INTO `challenge_category` (`id`, `challenge_id`, `challenge_type_id`, `number_of_workouts`) VALUES (2, 1, 2, NULL);
-INSERT INTO `challenge_category` (`id`, `challenge_id`, `challenge_type_id`, `number_of_workouts`) VALUES (3, 1, 3, NULL);
-INSERT INTO `challenge_category` (`id`, `challenge_id`, `challenge_type_id`, `number_of_workouts`) VALUES (4, 2, 3, NULL);
 
 COMMIT;
 
