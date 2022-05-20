@@ -7,6 +7,8 @@
 	
 	<class>com.skilldistillery.accomplish.entities.User</class>
 	<class>com.skilldistillery.accomplish.entities.UserChallenge</class>
+	<class>com.skilldistillery.accomplish.entities.Challenge</class>
+	<class>com.skilldistillery.accomplish.entities.Category</class>
 	
 	
 	<!-- end Entities -->

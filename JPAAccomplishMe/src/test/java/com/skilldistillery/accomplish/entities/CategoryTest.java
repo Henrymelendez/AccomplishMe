@@ -1,6 +1,7 @@
 package com.skilldistillery.accomplish.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,10 +14,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserChallengeChallengeTest {
+class CategoryTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private UserChallenge challenges;
+	private Category category;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,38 +32,21 @@ class UserChallengeChallengeTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		challenges = em.find(UserChallenge.class, 1);
+		category = em.find(Category.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		challenges = null;
+		category = null;
 	}
 
 	@Test
-	@DisplayName("Test UserChallenge Mapping")
-	void test_challenges_mappping() {
-		assertNotNull(challenges);
-		assertEquals("\'no details\'", challenges.getDetails());
+	@DisplayName("Test Category Mapping")
+	void test_category_mappping() {
+		assertNotNull(category);
+		assertEquals("workout", category.getName());
 	}
-	
-	@Test
-	@DisplayName("Test UserChallenge user mapping")
-	void test_userChallenge_user_mapping() {
-		
-		assertNotNull(challenges);
-		assertNotNull(challenges.getUser());
-		assertTrue(challenges.getUser().getFirstName().equals("Mason"));
-		
-	}
-	
-	@Test
-	@DisplayName("Test UserChallenge Challenge mapping")
-	void test_challenges_challenge_mapping(){
-		assertNotNull(challenges);
-		assertNotNull(challenges.getChallenge());
-		assertTrue(challenges.getChallenge().getName().equals("75 hard"));
-	}
+
 	
 }

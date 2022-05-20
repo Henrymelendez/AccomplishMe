@@ -1,7 +1,6 @@
 package com.skilldistillery.accomplish.entities;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -46,6 +45,10 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<UserChallenge> userChallenges;
 	
+	@OneToMany(mappedBy="creator")
+	private List<Challenge> createdChallenges;
+	
+	
 	
 	
 
@@ -67,6 +70,32 @@ public class User {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public List<Challenge> getCreatedChallenges() {
+		return new ArrayList<>(createdChallenges);
+	}
+	
+	public void addCreatedChallenge(Challenge challenge) {
+		if(createdChallenges == null) {
+			createdChallenges = new ArrayList<>();
+		}
+		if(!createdChallenges.contains(challenge)) {
+			createdChallenges.add(challenge);
+			challenge.setCreator(this);
+		}
+	}
+	
+	public void removeCreatedChallenge(Challenge challenge) {
+		if(createdChallenges != null && createdChallenges.contains(challenge)) {
+			createdChallenges.remove(challenge);
+		}
+		if(challenge.getCreator() != null && challenge.getCreator().equals(this)) {
+			challenge.setCreator(null);
+		}
+	}
+	
+	public void setCreatedChallenges(List<Challenge> createdChallenges) {
+		this.createdChallenges = createdChallenges;
 	}
 
 	@Override

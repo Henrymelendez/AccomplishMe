@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -38,6 +37,14 @@ public class UserChallenge {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	@ManyToOne
+	@JoinColumn(name ="challenge_id")
+	private Challenge challenge;
+	
+	
+
+	
 
 	public UserChallenge() {
 		super();
@@ -124,6 +131,13 @@ public class UserChallenge {
 		this.user = user;
 	}
 
+	public Challenge getChallenge() {
+		return challenge;
+	}
+
+	public void setChallenge(Challenge challenge) {
+		this.challenge = challenge;
+	}
 	@Override
 	public String toString() {
 		return "UserChallenge [id=" + id + ", details=" + details + ", startDate=" + startDate + ", endDate=" + endDate

@@ -15,10 +15,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class ChallengeTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Challenge challenge;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,40 +33,37 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 2);
+		challenge = em.find(Challenge.class, 2);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		challenge = null;
 	}
 
 	@Test
-	@DisplayName("Test User Mapping")
-	void test_user_mappping() {
-		assertNotNull(user);
-		assertEquals("Mason", user.getUsername());
+	@DisplayName("Test Challenge Mapping")
+	void test_challenge_mappping() {
+		assertNotNull(challenge);
+		assertEquals("NaNoWriMo", challenge.getName());
 	}
 
-	@Test
-	@DisplayName("Test User Challenge mapping")
-	void test_user_challenge_mapping() {
-
-		assertNotNull(user);
-		assertNotNull(user.getUserChallenges());
-		assertTrue(user.getUserChallenges().size() > 0);
-
-	}
 
 	@Test
-	@DisplayName("Test created Challenge mapping")
+	@DisplayName("Test creator mapping")
 	void test_created_challenge_mapping() {
-		user = em.find(User.class, 1);
-		assertNotNull(user);
-		assertNotNull(user.getCreatedChallenges());
-		assertTrue(user.getCreatedChallenges().size() > 0);
-		
+		challenge = em.find(Challenge.class, 1);
+		assertNotNull(challenge);
+		assertNotNull(challenge.getCreator());
+		assertTrue(challenge.getCreator().getUsername().equals("admin"));
+	}
 	
+	@Test
+	@DisplayName("Test challeng category mapping")
+	void test_challenge_category_mapping() {
+		assertNotNull(challenge);
+		assertNotNull(challenge.getCategories());
+//		assertTrue(challenge.getCategories().size() > 0);
 	}
 }
