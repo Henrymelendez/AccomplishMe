@@ -6,6 +6,8 @@
     <!-- begin Entities -->
 	
 	<class>com.skilldistillery.accomplish.entities.User</class>
+	<class>com.skilldistillery.accomplish.entities.UserChallenge</class>
+	
 	
 	<!-- end Entities -->
 		<properties>
