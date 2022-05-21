@@ -57,6 +57,8 @@ public class UserDAOImpl implements UserDAO {
 		if(user != null) {
 			user.setActive(false);
 			isUserDeleted = !user.getActive();
+			
+			
 		}
 		return isUserDeleted;
 	}
