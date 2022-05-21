@@ -33,7 +33,7 @@
  
  </div>
  <div class="col-4 scroll">
- 	<h2>Friends Feed</h2>
+ 	<h2><i class="fa fa-users"></i>Friends Feed</h2>
  	<p>Not yet Implemented</p>
  </div>
 
