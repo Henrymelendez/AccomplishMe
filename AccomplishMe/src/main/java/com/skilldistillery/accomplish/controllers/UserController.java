@@ -28,7 +28,7 @@ public class UserController {
 		return view;
 	}
 	
-	@RequestMapping(path="createUser.do", method = RequestMethod.POST)
+	@RequestMapping(path="createUser.do", method = RequestMethod.GET)
 	public String createUserPage() {
 		return "views/createUser";
 	}
