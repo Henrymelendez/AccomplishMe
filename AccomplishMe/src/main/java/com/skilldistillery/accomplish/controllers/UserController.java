@@ -17,7 +17,7 @@ public class UserController {
 	@Autowired
 	private UserDAO userDAO;
 	
-	@RequestMapping(path={"/", "login.do"})
+	@RequestMapping(path={"/", "home.do"})
 	public String home(Model model, HttpSession session) {
 		String view = "home";
 		
