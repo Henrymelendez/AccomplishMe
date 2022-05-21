@@ -98,7 +98,7 @@ h2 {
 }
 
 input:focus, input:focus::placeholder, input:focus+i{
-  color: #ff164;
+  color: #ff1464;
 }
 
 input:focus, button:focus {
