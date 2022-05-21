@@ -4,18 +4,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta name="viewport" charset="utf-8">
     <title>Login Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="css/login.css">
+    <%@ include file="CSSInclude.jsp" %>
+
   </head>
   <body>
-    <div class="">
-
-
+  <main class="container-fluid">
+    <div class="row">
     <h1>Accomplish Me</h1>
+    <div class="col-sm-2"></div>
+   	<div class="col-sm-4">
+
+
       <img src="https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png" alt="#">
     </div>
+
+   	<div class="col-sm-4">
+   	<br><br>
     <form action="login.do" method="GET">
     <div class="login">
 
@@ -32,7 +38,11 @@
 
     </div>
   </form>
+   	</div>
+   	</div>
+   	<div class="col-sm-2"></div>
   
-
+  </main>
+	<%@ include file="JSInclude.jsp" %>
   </body>
 </html>
