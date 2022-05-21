@@ -7,8 +7,8 @@
 
           <h3>Accomplish ${page}</h3>
           <ul>
-            <li><a href="startEdit.do" class="fa fa-user fa-3x"></a></li>
-              <li><a href="settings.do"class="fa fa-cog fa-3x"></a></li>
+            <li><a href="home.do" class="fa fa-user fa-3x"></a></li>
+              <li><a href="startEdit.do"class="fa fa-cog fa-3x"></a></li>
                 <li><a href="viewLog.do" class="fa fa-address-book fa-3x"></a></li>
                   <li><a href="viewHealth.do" class="fa fa-heartbeat fa-3x"></a></li>
                     <li><a href="viewFriends.do" class="fa fa-users fa-3x"></a></li>
