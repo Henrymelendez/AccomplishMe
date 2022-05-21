@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.accomplish.data.UserDAO;
 import com.skilldistillery.accomplish.entities.User;
+import com.skilldistillery.accomplish.entities.UserChallenge;
 
 @Controller
 public class UserController {
@@ -50,11 +51,18 @@ public class UserController {
 	}
 	
 	@RequestMapping(path= "login.do")
-	public String login(String username, String password, HttpSession session, RedirectAttributes redir) {
+	public String login(String username, String password, HttpSession session, RedirectAttributes redir, Model model) {
 		String view = "home";
 		User user = userDAO.findByUserNameAndPassword(username, password);
 		if(user != null) {
 			session.setAttribute("user", user);
+			
+			for (UserChallenge challenge : user.getUserChallenges()) {
+				if(challenge.getActive()) {
+					model.addAttribute("challenge", challenge);
+					break;
+				}
+			}
 			view = "views/userHome";
 		} else {
 			redir.addFlashAttribute("message", "Username or Password is incorrect");
