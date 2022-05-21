@@ -8,5 +8,7 @@ public interface UserDAO {
 	User findById(int userId);
 	User findByUserNameAndPassword(String username, String password);
 	User createaUser(User user);
+	boolean deleteUser(int userId);
+	User editUser(User user);
 
 }

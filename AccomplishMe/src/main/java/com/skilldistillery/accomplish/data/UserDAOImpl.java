@@ -3,6 +3,8 @@ package com.skilldistillery.accomplish.data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -49,5 +51,34 @@ public class UserDAOImpl implements UserDAO {
 
 		return user;
 	}
-
+	
+	@Override
+	public boolean deleteUser(int userId) {
+		boolean isUserDeleted = false;
+		User user = em.find(User.class, userId);
+		if(user != null) {
+			user.setActive(false);
+			isUserDeleted = !user.getActive();
+		}
+		return isUserDeleted;
+	}
+	
+	@Override
+	public User editUser(User user) {
+		int id = user.getId();
+		
+		User userToEdit = em.find(User.class, id);
+		
+		userToEdit.setUsername(user.getUsername());
+		userToEdit.setPassword(user.getPassword());
+		userToEdit.setHeight(user.getHeight());
+		userToEdit.setWeight(user.getWeight());
+		userToEdit.setFirstName(user.getFirstName());
+		userToEdit.setLastName(user.getLastName());
+		userToEdit.setBirthday(user.getBirthday());
+		userToEdit.setUserPhoto(user.getUserPhoto());
+		
+		return userToEdit;
+	}
+	
 }
