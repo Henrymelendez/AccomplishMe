@@ -1,7 +1,5 @@
 package com.skilldistillery.accomplish.controllers;
 
-import java.time.LocalDate;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
