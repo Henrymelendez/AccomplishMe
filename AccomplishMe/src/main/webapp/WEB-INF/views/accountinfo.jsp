@@ -11,6 +11,9 @@
 <body>
 <main>
 <div class="row">
+ <%@ include file="navbar.jsp" %>
+</div>
+<div class="row">
 <div class="col-4">
 <img href="${user.userPhoto }">
 </div>

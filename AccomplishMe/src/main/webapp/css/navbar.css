@@ -1,6 +1,5 @@
 
 .hero {
-  height:12vh;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -14,7 +13,7 @@
 
 #onBar {
   background-color: #925252;
-  display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-between;
   padding-top: 20px;
@@ -59,9 +58,10 @@
   border: none;
   padding-top: 12px;
   margin:2px;
-  border-radius: 30px;
+  border-radius: 10%;
   transition: .4s;
   padding-bottom: 20px;
+  padding-right: 30px;
   position: relative;
 
 }

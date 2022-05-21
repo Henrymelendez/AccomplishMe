@@ -1,7 +1,5 @@
 package com.skilldistillery.accomplish.controllers;
 
-import java.time.LocalDate;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +22,9 @@ public class UserController {
 	@RequestMapping(path={"/", "home.do"})
 	public String home(Model model, HttpSession session) {
 		String view = "home";
-		
-		if(session.getAttribute("user") != null) {
+		User user = (User)session.getAttribute("user");
+		if(user != null) {
+			session.setAttribute("user", user);
 			view = "views/userHome";
 		}
 		
