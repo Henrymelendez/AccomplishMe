@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.LocalDate;
+import java.time.Month;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -15,10 +18,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class ChallengeLogDetailTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private ChallengeLogDetail challengeLogDetail;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,46 +36,38 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 2);
+		challengeLogDetail = em.find(ChallengeLogDetail.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		challengeLogDetail = null;
 	}
 
 	@Test
-	@DisplayName("Test User Mapping")
-	void test_user_mappping() {
-		assertNotNull(user);
-		assertEquals("Mason", user.getUsername());
+	@DisplayName("Test ChallengeLogDetail Mapping")
+	void test_challengeLogDetail_mappping() {
+		assertNotNull(challengeLogDetail);
+		assertEquals(45, challengeLogDetail.getDuration());
 	}
-
 	@Test
-	@DisplayName("Test User Challenge mapping")
-	void test_user_challenge_mapping() {
-
-		assertNotNull(user);
-		assertNotNull(user.getUserChallenges());
-		assertTrue(user.getUserChallenges().size() > 0);
-
-	}
-
-	@Test
-	@DisplayName("Test created Challenge mapping")
-	void test_created_challenge_mapping() {
-		user = em.find(User.class, 1);
-		assertNotNull(user);
-		assertNotNull(user.getCreatedChallenges());
-		assertTrue(user.getCreatedChallenges().size() > 0);
+	@DisplayName("Test ChallengeLog Mapping")
+	void test_challengeLog() {
+		LocalDate testDate = LocalDate.of(2022, Month.MAY, 20);
+		assertNotNull(challengeLogDetail);
+		assertNotNull(challengeLogDetail.getChallengeLog());
+		assertEquals(testDate, challengeLogDetail.getChallengeLog().getEntryDate());
+		
 	}
 	
 	@Test
-	@DisplayName("Test created details")
-	void test_created_challenge_detail(){
-		assertNotNull(user);
-		assertNotNull(user.getCreatedChallengeDetails());
-		assertTrue(user.getCreatedChallengeDetails().size() > 0);
+	@DisplayName("Test Detail Mapping")
+	void test_challengeLogDetail() {
+		assertNotNull(challengeLogDetail);
+		assertNotNull(challengeLogDetail.getChallengeDetail());
+		assertTrue(challengeLogDetail.getChallengeDetail().getName().equals("Swimming (freestyle)"));
 	}
+
+	
 }

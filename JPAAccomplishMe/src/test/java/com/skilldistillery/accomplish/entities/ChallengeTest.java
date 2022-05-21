@@ -64,6 +64,6 @@ class ChallengeTest {
 	void test_challenge_category_mapping() {
 		assertNotNull(challenge);
 		assertNotNull(challenge.getCategories());
-//		assertTrue(challenge.getCategories().size() > 0);
+		assertTrue(challenge.getCategories().size() > 0);
 	}
 }

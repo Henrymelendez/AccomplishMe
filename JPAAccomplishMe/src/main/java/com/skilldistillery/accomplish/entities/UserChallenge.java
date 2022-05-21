@@ -1,6 +1,8 @@
 package com.skilldistillery.accomplish.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -41,6 +44,9 @@ public class UserChallenge {
 	@ManyToOne
 	@JoinColumn(name ="challenge_id")
 	private Challenge challenge;
+	
+	@OneToMany(mappedBy = "userChallenge")
+	private List<ChallengeLog> challengeLogs;
 	
 	
 
@@ -138,6 +144,32 @@ public class UserChallenge {
 	public void setChallenge(Challenge challenge) {
 		this.challenge = challenge;
 	}
+	public List<ChallengeLog> getChallengeLogs() {
+		return new ArrayList<>(challengeLogs);
+	}
+
+	public void setChallengeLogs(List<ChallengeLog> challengeLogs) {
+		this.challengeLogs = challengeLogs;
+	}
+	
+	public void addChallengeLog(ChallengeLog challengeLog) {
+		if (challengeLogs == null) {
+			challengeLogs = new ArrayList<>();
+		}
+		if (!challengeLogs.contains(challengeLog) ) {
+			challengeLogs.add(challengeLog);
+			challengeLog.setUserChallenge(this);
+		}
+	}
+	
+	public void removeChallengeLog(ChallengeLog challengeLog) {
+		if (challengeLogs != null && challengeLogs.contains(challengeLog)) {
+			challengeLogs.remove(challengeLog);
+		} if(challengeLog.getUserChallenge() != null && challengeLog.getUserChallenge().equals(this)) {
+			challengeLog.setUserChallenge(null);
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "UserChallenge [id=" + id + ", details=" + details + ", startDate=" + startDate + ", endDate=" + endDate

@@ -295,8 +295,8 @@ CREATE TABLE IF NOT EXISTS `challenge_log_detail` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `challenge_detail_id` INT NOT NULL,
   `duration_in_minutes` INT NULL,
-  `servings_eaten` VARCHAR(45) NULL,
-  `pages_read` VARCHAR(45) NULL,
+  `servings_eaten` INT NULL,
+  `pages_read` INT NULL,
   `active` TINYINT NOT NULL DEFAULT 1,
   `challenge_log_id` INT NOT NULL,
   INDEX `fk_challenge_detail_has_challenge_log_challenge_detail1_idx` (`challenge_detail_id` ASC),
@@ -496,6 +496,19 @@ COMMIT;
 START TRANSACTION;
 USE `accomplishmedb`;
 INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (1, 1, 45, NULL, NULL, 1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `challenge_category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `accomplishmedb`;
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (1, 1);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 1);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (3, 1);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 2);
 
 COMMIT;
 

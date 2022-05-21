@@ -48,6 +48,9 @@ public class User {
 	@OneToMany(mappedBy="creator")
 	private List<Challenge> createdChallenges;
 	
+	@OneToMany(mappedBy = "creator")
+	private List<ChallengeDetail> createdChallengeDetails;
+	
 	
 	
 	
@@ -217,6 +220,29 @@ public class User {
 		if(challenge.getUser() != null && challenge.getUser().equals(this)) {
 			challenge.setUser(null);
 			
+		}
+	}
+
+	public List<ChallengeDetail> getCreatedChallengeDetails() {
+		return new ArrayList<>(createdChallengeDetails);
+	}
+
+	public void setCreatedChallengeDetails(List<ChallengeDetail> createdChallengeDetails) {
+		this.createdChallengeDetails = createdChallengeDetails;
+	}
+	
+	public void addCreatedChallengeDetail(ChallengeDetail detail) {
+		if(createdChallengeDetails == null) {
+			createdChallengeDetails = new ArrayList<>();
+		} if(!createdChallengeDetails.contains(detail)) {
+			createdChallengeDetails.add(detail);
+		}
+		
+	}
+	
+	public void removeCreatedChallengeDetail(ChallengeDetail detail) {
+		if(createdChallengeDetails != null && createdChallengeDetails.contains(detail)) {
+			createdChallengeDetails.remove(detail);
 		}
 	}
 	

@@ -9,6 +9,9 @@
 	<class>com.skilldistillery.accomplish.entities.UserChallenge</class>
 	<class>com.skilldistillery.accomplish.entities.Challenge</class>
 	<class>com.skilldistillery.accomplish.entities.Category</class>
+	<class>com.skilldistillery.accomplish.entities.ChallengeLog</class>
+	<class>com.skilldistillery.accomplish.entities.ChallengeLogDetail</class>
+	<class>com.skilldistillery.accomplish.entities.ChallengeDetail</class>
 	
 	
 	<!-- end Entities -->
