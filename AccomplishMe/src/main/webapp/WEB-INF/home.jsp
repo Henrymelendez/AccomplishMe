@@ -6,8 +6,9 @@
   <head>
     <meta name="viewport" charset="utf-8">
     <title>Login Page</title>
-    <%@ include file="CSSInclude.jsp" %>
-
+  
+	<link rel="stylesheet" href="css/login.css">
+	 
   </head>
   <body>
   <main  class="container-fluid">
