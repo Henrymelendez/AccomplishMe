@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `birthday` DATE NULL,
   `user_photo_url` VARCHAR(255) NULL,
   `active` TINYINT NOT NULL DEFAULT 1,
-  `visibility_id` INT NOT NULL DEFAULT 1,
+  `visibility_id` INT NULL DEFAULT 1,
   `role_id` INT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
