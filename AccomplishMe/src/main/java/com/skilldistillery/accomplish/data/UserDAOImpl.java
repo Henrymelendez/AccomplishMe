@@ -67,14 +67,12 @@ public class UserDAOImpl implements UserDAO {
 		
 		User userToEdit = em.find(User.class, id);
 		
-		userToEdit.setUsername(user.getUsername());
-		userToEdit.setPassword(user.getPassword());
+	
 		userToEdit.setHeight(user.getHeight());
 		userToEdit.setWeight(user.getWeight());
 		userToEdit.setFirstName(user.getFirstName());
 		userToEdit.setLastName(user.getLastName());
-		userToEdit.setBirthday(user.getBirthday());
-		userToEdit.setUserPhoto(user.getUserPhoto());
+
 		
 		return userToEdit;
 	}
