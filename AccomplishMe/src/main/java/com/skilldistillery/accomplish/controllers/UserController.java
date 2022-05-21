@@ -12,9 +12,10 @@ public class UserController {
 	@Autowired
 	private UserDAO userDAO;
 	
-	@RequestMapping(path={"/", "home.do"})
+	@RequestMapping(path={"/", "login.do"})
 	public String home(Model model) {
-		model.addAttribute("DEBUG", userDAO.findById(1)); //DEBUG REMOVE LATER
+		
+		
 		return "home";
 	}
 

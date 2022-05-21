@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #444;
+  font-family: sans-serif;
+
+
+}
+body{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  padding-right: 10%;
+
+}
+
+.login {
+  text-align: center;
+  position: relative;
+  width: 280px;
+
+
+}
+
+
+input, button{
+    width:  100%;
+    border: 0;
+    border-radius: 20px;
+
+}
+
+input {
+  border-bottom: 2px solid #444;
+  padding: 12px 40px 12px 20px
+}
+
+
+
+input, button, .group i, p, a {
+
+  font-size: 13.3333px;
+  font-weight: 600;
+
+}
+
+.group {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+
+.group i {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+
+}
+
+
+button {
+  padding: 12px;
+  background-image:  linear-gradient(to right, #925252, #925252);
+  margin-bottom: 20px;
+  cursor: pointer;
+
+}
+
+
+button, button i {
+  color: #FFF;
+}
+
+button i {
+  margin-right: 5px;
+}
+
+
+i.fa.fa-empire, a {
+  color: #ff1464;
+}
+
+
+i.fa.fa-empire {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+
+h2 {
+  margin-bottom: 20px;
+}
+
+input:focus, input:focus::placeholder, input:focus+i{
+  color: #ff164;
+}
+
+input:focus, button:focus {
+  outline: 0;
+}
+
+body:before, body:after {
+  content: "";
+  position: absolute;
+  height: 300px;
+  width: 500px;
+}
+
+
+body:before{
+
+  bottom: 0;
+  left: 0;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+
+
+body:after{
+
+  top: 0;
+  right:0;
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+img {
+  display: flex;
+  
+}
+h1 {
+
+  font-size: 120px;;
+  font-family: 'EB Garamond', serif;
+  color:  #607281;
+  position: relative;
+
+
+}
+
+
+@media (max-width: 767px) {
+  body:before, body:after {
+    height: 150px;
+    width: 300px;
+  }
+
+}
