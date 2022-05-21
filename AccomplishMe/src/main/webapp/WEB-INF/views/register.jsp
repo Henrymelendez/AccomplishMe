@@ -10,6 +10,9 @@
 	<script type="text/javascript" src="js/multi-form.js?v2"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			$.validator.addMethod('date', function(value, element, param) {
+				return (value != 0) && (value <= 31) && (value == parseInt(value, 10));
+			}, 'Please enter a valid date!');
 			$.validator.addMethod('feet', function(value, element, param) {
 				return (value  > 3) && (value <= 9) && (value == parseInt(value, 10));
 			}, 'Please enter a height above 3 feet!');
@@ -114,6 +117,7 @@
 	    <p><input placeholder="feet" name="feet"></p>
 	    <p><input placeholder="inches" name="inches"></p>
 	  </div>
+	  
 	  <div class="tab">Login Info:
 	    <p><input placeholder="Username..." name="username"></p>
 	    <p><input placeholder="Password..." name="password" type="password"></p>
