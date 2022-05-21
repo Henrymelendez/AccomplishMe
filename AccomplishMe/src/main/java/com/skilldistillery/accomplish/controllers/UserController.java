@@ -31,7 +31,7 @@ public class UserController {
 	
 	@RequestMapping(path="createUser.do", method = RequestMethod.GET)
 	public String createUserPage() {
-		return "views/createUser";
+		return "views/register";
 	}
 	
 	
@@ -69,5 +69,16 @@ public class UserController {
 		}
 		return view;
 	}
-
+//	@RequestMapping(path= {"delete.do"})
+//	public String deleteUser(@RequestParam("deleteId") int id) {
+//		boolean user = userDAO.deleteUser(id);
+//		
+//		if(user == true) {
+//			return "userAccountDeleted";
+//		}else {
+//			return "unsuccessful";
+//		}
+//	}
+	
+//	RequestMapping(path=)
 }
