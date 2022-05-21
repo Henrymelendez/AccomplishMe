@@ -1,5 +1,7 @@
 package com.skilldistillery.accomplish.controllers;
 
+import java.time.LocalDate;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.accomplish.data.UserDAO;
@@ -71,16 +74,37 @@ public class UserController {
 		}
 		return view;
 	}
-//	@RequestMapping(path= {"delete.do"})
-//	public String deleteUser(@RequestParam("deleteId") int id) {
-//		boolean user = userDAO.deleteUser(id);
-//		
-//		if(user == true) {
-//			return "userAccountDeleted";
-//		}else {
-//			return "unsuccessful";
-//		}
-//	}
+	@RequestMapping(path= "deleteUser.do")
+	public String deleteUser(int id) {
+		boolean user = userDAO.deleteUser(id);
+		
+		if(user == true) {
+			return "userAccountDeleted";
+		}else {
+			return "unsuccessful";
+		}
+	}
 	
-//	RequestMapping(path=)
+	@RequestMapping(path = "startEdit.do")
+	public ModelAndView startEditUser(HttpSession session, RedirectAttributes redir) {
+		ModelAndView mv = new ModelAndView();
+		User user = (User) session.getAttribute("user");
+		if(user !=null) {
+			mv.addObject("user", user);
+			mv.setViewName("accountinfo");
+		}else {
+			mv.setViewName("redirect:home.do");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(path= "editUser.do")
+	public ModelAndView editUser(User user, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		user = userDAO.editUser(user);
+		session.setAttribute("user", user);
+		mv.setViewName("views/userHome");
+		return mv;
+	}
+	
 }
