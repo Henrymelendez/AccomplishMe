@@ -35,7 +35,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User createaUser(User user) {
-		String jpql = "SELECT username FROM user";
+		String jpql = "SELECT username FROM User";
 		List<String> existingUsernames = em.createQuery(jpql, String.class).getResultList();
 		boolean freeName = true;
 		for (String username : existingUsernames) {

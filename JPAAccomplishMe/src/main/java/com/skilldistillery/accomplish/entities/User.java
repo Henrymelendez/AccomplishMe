@@ -14,49 +14,59 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	
+
 	private String username;
-	
+
 	private String password;
 
 	private Double height;
 
 	private Double weight;
-	
+
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	@Column(name = "birthday")
 	private LocalDate birthday;
-	
+
 	@Column(name = "user_photo_url")
 	private String userPhoto;
-	
+
 	private Boolean active;
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<UserChallenge> userChallenges;
-	
-	@OneToMany(mappedBy="creator")
+
+	@OneToMany(mappedBy = "creator")
 	private List<Challenge> createdChallenges;
-	
+
 	@OneToMany(mappedBy = "creator")
 	private List<ChallengeDetail> createdChallengeDetails;
-	
-	
 	
 	
 
 	public User() {
 		super();
+	}
+
+	public User(String username, String password, Double height, Double weight, String firstName, String lastName,
+			Boolean active) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.height = height;
+		this.weight = weight;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.active = active;
+	
 	}
 
 	public int getId() {
@@ -74,29 +84,30 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public List<Challenge> getCreatedChallenges() {
 		return new ArrayList<>(createdChallenges);
 	}
-	
+
 	public void addCreatedChallenge(Challenge challenge) {
-		if(createdChallenges == null) {
+		if (createdChallenges == null) {
 			createdChallenges = new ArrayList<>();
 		}
-		if(!createdChallenges.contains(challenge)) {
+		if (!createdChallenges.contains(challenge)) {
 			createdChallenges.add(challenge);
 			challenge.setCreator(this);
 		}
 	}
-	
+
 	public void removeCreatedChallenge(Challenge challenge) {
-		if(createdChallenges != null && createdChallenges.contains(challenge)) {
+		if (createdChallenges != null && createdChallenges.contains(challenge)) {
 			createdChallenges.remove(challenge);
 		}
-		if(challenge.getCreator() != null && challenge.getCreator().equals(this)) {
+		if (challenge.getCreator() != null && challenge.getCreator().equals(this)) {
 			challenge.setCreator(null);
 		}
 	}
-	
+
 	public void setCreatedChallenges(List<Challenge> createdChallenges) {
 		this.createdChallenges = createdChallenges;
 	}
@@ -190,36 +201,34 @@ public class User {
 	}
 
 	public List<UserChallenge> getUserChallenges() {
-		return  new ArrayList<UserChallenge>(userChallenges);
+		return new ArrayList<UserChallenge>(userChallenges);
 	}
 
 	public void setUserChallenges(List<UserChallenge> challenges) {
 		this.userChallenges = challenges;
 	}
-	
+
 	public void addUserChallenge(UserChallenge challenge) {
-		if(userChallenges == null) {
+		if (userChallenges == null) {
 			userChallenges = new ArrayList<UserChallenge>();
-			
+
 		}
-		
-		if(!userChallenges.contains(challenge)) {
+
+		if (!userChallenges.contains(challenge)) {
 			userChallenges.add(challenge);
 			challenge.setUser(this);
 		}
-		
-		
+
 	}
-	
+
 	public void removeUserChallenge(UserChallenge challenge) {
-		if(userChallenges != null && userChallenges.contains(challenge)) {
+		if (userChallenges != null && userChallenges.contains(challenge)) {
 			userChallenges.remove(challenge);
-			
-			
+
 		}
-		if(challenge.getUser() != null && challenge.getUser().equals(this)) {
+		if (challenge.getUser() != null && challenge.getUser().equals(this)) {
 			challenge.setUser(null);
-			
+
 		}
 	}
 
@@ -230,23 +239,21 @@ public class User {
 	public void setCreatedChallengeDetails(List<ChallengeDetail> createdChallengeDetails) {
 		this.createdChallengeDetails = createdChallengeDetails;
 	}
-	
+
 	public void addCreatedChallengeDetail(ChallengeDetail detail) {
-		if(createdChallengeDetails == null) {
+		if (createdChallengeDetails == null) {
 			createdChallengeDetails = new ArrayList<>();
-		} if(!createdChallengeDetails.contains(detail)) {
+		}
+		if (!createdChallengeDetails.contains(detail)) {
 			createdChallengeDetails.add(detail);
 		}
-		
+
 	}
-	
+
 	public void removeCreatedChallengeDetail(ChallengeDetail detail) {
-		if(createdChallengeDetails != null && createdChallengeDetails.contains(detail)) {
+		if (createdChallengeDetails != null && createdChallengeDetails.contains(detail)) {
 			createdChallengeDetails.remove(detail);
 		}
 	}
-	
-	
-	
 
 }

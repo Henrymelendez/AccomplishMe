@@ -39,10 +39,11 @@ public class UserController {
 	
 	
 	@RequestMapping(path= "createUser.do", method = RequestMethod.POST)
-	public String createNewUser(User user, HttpSession session, RedirectAttributes redir, Integer feet, Integer inches) {
+	public String createNewUser(HttpSession session, RedirectAttributes redir, Integer feet, Integer inches, String firstName,
+			String lastName, Double weight, String username, String password) {
 		String view = "views/userHome";
 		Double height = (double)((feet * 12) + inches);
-		user.setHeight(height);
+		User user = new User(username, password, height, weight, firstName, lastName, true);
 		userDAO.createaUser(user);	
 		
 		if (user.getId() != 0) {
