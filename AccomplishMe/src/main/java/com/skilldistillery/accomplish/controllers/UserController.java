@@ -31,14 +31,16 @@ public class UserController {
 	
 	@RequestMapping(path="createUser.do", method = RequestMethod.GET)
 	public String createUserPage() {
-		return "views/createUser";
+		return "views/register";
 	}
 	
 	
 	@RequestMapping(path= "createUser.do", method = RequestMethod.POST)
-	public String createNewUser(User user, HttpSession session, RedirectAttributes redir) {
+	public String createNewUser(User user, HttpSession session, RedirectAttributes redir, Integer feet, Integer inches) {
 		String view = "views/userHome";
-		userDAO.createaUser(user);
+		Double height = (double)((feet * 12) + inches);
+		user.setHeight(height);
+		userDAO.createaUser(user);	
 		
 		if (user.getId() != 0) {
 			session.setAttribute("user", user);
@@ -69,5 +71,16 @@ public class UserController {
 		}
 		return view;
 	}
-
+//	@RequestMapping(path= {"delete.do"})
+//	public String deleteUser(@RequestParam("deleteId") int id) {
+//		boolean user = userDAO.deleteUser(id);
+//		
+//		if(user == true) {
+//			return "userAccountDeleted";
+//		}else {
+//			return "unsuccessful";
+//		}
+//	}
+	
+//	RequestMapping(path=)
 }
