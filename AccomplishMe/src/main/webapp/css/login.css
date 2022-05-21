@@ -16,8 +16,10 @@ body{
   align-items: center;
   height: 100vh;
   width: 100vw;
-  padding-right: 10%;
 
+}
+main{
+	width: 100%;
 }
 
 .login {
@@ -129,7 +131,7 @@ body:after{
   clip-path: polygon(100% 0, 0 0, 100% 100%);
 }
 
-img {
+.mainImage {
   position: relative;
   width: 100%;
   height: auto;

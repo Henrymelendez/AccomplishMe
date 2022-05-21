@@ -10,14 +10,16 @@
 
   </head>
   <body>
-  <main class="container-fluid">
+  <main  class="container-fluid">
+  
+ 
     <div class="row">
     <h1>Accomplish Me</h1>
     <div class="col-sm-2"></div>
    	<div class="col-sm-4">
 
 
-      <img src="https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png" alt="#">
+      <img src="https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png" alt="#" class="mainImage">
     </div>
 
    	<div class="col-sm-4">
