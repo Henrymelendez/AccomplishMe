@@ -37,8 +37,9 @@ ${inches = user.height - (feet*12)}
 <div class="col-4">
 <button>Change your username or password?</button>
 
-<form>
-<input type="text" >
+<form action="deleteUser.do">
+<input type="text" value="${user.id}" name="id" hidden="true">
+<input type="submit" value="Delete my account">
 </form>
 </div>
 
