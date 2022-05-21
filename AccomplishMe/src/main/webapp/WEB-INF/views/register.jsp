@@ -10,9 +10,9 @@
 	<script type="text/javascript" src="js/multi-form.js?v2"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$.validator.addMethod('date', function(value, element, param) {
-				return (value != 0) && (value <= 31) && (value == parseInt(value, 10));
-			}, 'Please enter a valid date!');
+			$.validator.addMethod('weight', function(value, element, param) {
+				return (value > 90) && (value <= 700) && (value == parseInt(value, 10));
+			}, 'Please enter a valid weight!');
 			$.validator.addMethod('feet', function(value, element, param) {
 				return (value  > 3) && (value <= 9) && (value == parseInt(value, 10));
 			}, 'Please enter a height above 3 feet!');
@@ -27,12 +27,12 @@
 			var val	=	{
 			    // Specify validation rules
 			    rules: {
-			      fname: "required",
-
-					phone: {
+			    	firstName: "required",
+			    	lastName:  "required",
+					weight: {
 						required:true,
-						minlength:10,
-						maxlength:10,
+						minlength:2,
+						maxlength:3,
 						digits:true
 					},
 					feet:{
@@ -63,7 +63,8 @@
 			    },
 			    // Specify validation error messages
 			    messages: {
-					fname: 		"First name is required",
+			    	firstName: 		"First name is required",
+			    	lastName: 		"Last  name is required",
 				
 					feet:{
 						required: 	"Height in Feet",
@@ -88,6 +89,7 @@
 						minlength: 	"Password should be minimum 8 characters",
 						maxlength: 	"Password should be maximum 16 characters",
 					}
+					
 			    }
 			}
 			$("#myForm").multiStepForm(
@@ -117,6 +119,10 @@
 	    <p><input placeholder="feet" name="feet"></p>
 	    <p><input placeholder="inches" name="inches"></p>
 	  </div>
+	   <div class="tab">Weight
+	    <p><input placeholder="weight" name="weight" required="required"></p>
+
+	  </div>
 	  
 	  <div class="tab">Login Info:
 	    <p><input placeholder="Username..." name="username"></p>
@@ -135,6 +141,7 @@
 	    <span class="step">2</span>
 	    <span class="step">3</span>
 	    <span class="step">4</span>
+	    
 	  </div>
 	</form>
 </body>

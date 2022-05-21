@@ -20,7 +20,7 @@ public class UserController {
 	
 	@RequestMapping(path={"/", "home.do"})
 	public String home(Model model, HttpSession session) {
-		String view = "views/register";
+		String view = "home";
 		
 		if(session.getAttribute("user") != null) {
 			view = "views/userHome";
