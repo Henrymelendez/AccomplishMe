@@ -16,18 +16,18 @@
     <h1>Accomplish Me</h1>
       <img src="https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png" alt="#">
     </div>
-    <form action="*.do" method="GET">
+    <form action="login.do" method="GET">
     <div class="login">
 
       <i class="fa fa-empire" aria-hidden="true"></i>
         <h3>Login</h3>
-      <div class="group"><input type="text" placeholder="Username">
+      <div class="group"><input type="text" name="username" placeholder="Username">
         <i class="fa fa-user"></i></div>
 
-        <div class="group"><input type="password" placeholder="password"><i
+        <div class="group"><input type="password" name="password" placeholder="password"><i
           class="fa fa-lock"></i></div>
-          <button type="button" name="button"> <i class="fa fa-sand"></i>Login</button>
-          <button type="button" name="button"><i class="fa fa-sand"></i>Register</button>
+          <input type="submit" name="button" value="Login" formaction="login.do"/>
+          <input type="submit" name="button" value="Register" formaction="createUser.do"/>
 
 
     </div>
