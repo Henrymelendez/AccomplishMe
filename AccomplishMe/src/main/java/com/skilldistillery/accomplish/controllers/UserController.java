@@ -69,6 +69,7 @@ public class UserController {
 					break;
 				}
 			}
+			model.addAttribute("page", "Me");
 			view = "views/userHome";
 		} else {
 			redir.addFlashAttribute("message", "Username or Password is incorrect");
@@ -92,7 +93,7 @@ public class UserController {
 		User user = (User) session.getAttribute("user");
 		if(user !=null) {
 			mv.addObject("user", user);
-			mv.setViewName("accountinfo");
+			mv.setViewName("views/accountinfo");
 		}else {
 			mv.setViewName("redirect:home.do");
 		}

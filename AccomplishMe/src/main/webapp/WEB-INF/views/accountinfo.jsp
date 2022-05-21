@@ -19,9 +19,9 @@
 <input type=text value="${user.firstName }" name="firstName" hidden="true">
 <input type=text value="${user.lastName }" name="lastName" hidden="true">
 <input type=text value="${user.id }" name="id" hidden="true">
-<input type=text value="${user.photo}" name="userPhoto" hidden="true">
-<input type="number" value="${user.height} inches">
-<input type="number" value="${user.weight} lbs">
+<input type=text value="${user.userPhoto}" name="userPhoto" hidden="true">
+<input type="text" value="${user.height}">
+<input type="text" value="${user.weight}">
 <input type="text" value="${user.birthday }">
 <input type="submit" value="Save Changes">
 </form>

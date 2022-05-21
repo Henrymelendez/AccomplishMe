@@ -11,6 +11,10 @@
 </head>
 <body>
 <main class="container-fluid">
+<div class="row">
+ <%@ include file="navbar.jsp" %>
+</div>
+
  <div class="row" >
 <div class="col-4">
 	<h2>Challenge: ${challenge.challenge.name}</h2>
@@ -33,7 +37,7 @@
  
  </div>
  <div class="col-4 scroll">
- 	<h2><i class="fa fa-users"></i>Friends Feed</h2>
+ 	<h2><i class="fa fa-users"></i> Friends Feed</h2>
  	<p>Not yet Implemented</p>
  </div>
 
