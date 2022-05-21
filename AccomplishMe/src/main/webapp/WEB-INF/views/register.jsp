@@ -103,12 +103,12 @@
 </head>
 <body>
 	<h1 style="margin-top:50px; color: white;">Sign Up for Accomplish Me</h1>
-	<form id="myForm" action="#" method="POST">
+	<form id="myForm" action="createUser.do" method="POST">
 	  <h1>Registration Form</h1>
 	  <!-- One "tab" for each step in the form: -->
 	  <div class="tab">Name:
-	    <p><input placeholder="First name..." name="fname"></p>
-	    <p><input placeholder="Last name..." name="lname"></p>
+	    <p><input placeholder="First name..." name="firstName"></p>
+	    <p><input placeholder="Last name..." name="lastName"></p>
 	  </div>
 	  <div class="tab">Measurements
 	    <p><input placeholder="feet" name="feet"></p>
