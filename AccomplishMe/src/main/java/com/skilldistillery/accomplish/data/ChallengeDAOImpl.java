@@ -74,7 +74,9 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 	@Override
 	public List<Challenge> findByKeyword(String keyword) {
 		String jpql = "SELECT u FROM Challenge u WHERE u.name LIKE  %:keyword%";
-		List<Challenge> challenges = em.createQuery(jpql, Challenge.class).getResultList();
+		List<Challenge> challenges = em.createQuery(jpql, Challenge.class)
+				.setParameter("keyword", keyword)
+				.getResultList();
 		
 		if(challenges == null) {
 			return challenges;
