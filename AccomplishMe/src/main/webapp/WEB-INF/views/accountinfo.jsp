@@ -34,7 +34,11 @@ ${inches = user.height - (feet*12)}
 </form>
 </div>
 <div class="col-4">
-<button>Change your username or password?</button>
+	<form action="startEditUsernamePassword.do">
+		<input type="text" hidden="true" value="${user.id }" name="id" /> 
+		<input type="submit" value="Change your username or password">
+	</form>
+<!-- <button>Change your username or password?</button> -->
 
 <form action="deleteUser.do">
 <input type="text" value="${user.id}" name="id" hidden="true">
