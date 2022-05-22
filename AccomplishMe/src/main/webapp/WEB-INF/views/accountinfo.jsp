@@ -28,7 +28,7 @@ ${inches = user.height - (feet*12)}
 <input type="text" value="${user.id }" name="id" hidden="true">
 <label>First Name:</label><input type="text" value="${user.firstName }" name="firstName">
 <label>Last Name:</label><input type="text" value="${user.lastName }" name="lastName"><br>
-<label>Height (inches)</label><input type="text" value="${user.height}" name="height">
+<label>Height (inches)</label><input type="text" value="${user.feet}" name="feet"> <input type="text" value="${user.inches}" name="inches"><br>
 <label>Weight (lbs)</label><input type="text" value="${user.weight}" name= weight>
 <input type="submit" value="Save Changes">
 </form>
