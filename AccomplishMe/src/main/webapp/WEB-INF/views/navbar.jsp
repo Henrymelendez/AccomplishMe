@@ -30,7 +30,7 @@
   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-xxl-start" aria-labelledby="dropdownMenuLink">
     <li><a class="dropdown-item" href="userTasks.user">User Tasks</a></li>
     <li><a class="dropdown-item" href="#">Settings</a></li>
-    <li><a class="dropdown-item" href="#">Logout</a></li>
+    <li><a class="dropdown-item" href="logout.user">Logout</a></li>
   </ul>
 </div>
       <!--  <img src="images/Intersect.png" alt="" class="userProfile"> -->

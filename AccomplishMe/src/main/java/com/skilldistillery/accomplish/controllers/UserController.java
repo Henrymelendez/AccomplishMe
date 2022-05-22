@@ -167,4 +167,10 @@ public class UserController {
 		return "views/userTasks";
 	}
 	
+	@RequestMapping(path="logout.user")
+	public String logout(HttpSession session, RedirectAttributes redir) {
+		session.removeAttribute("user");
+		
+		return "redirect:home.do";
+	}
 }
