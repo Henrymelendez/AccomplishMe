@@ -75,6 +75,8 @@ public class UserController {
 		}
 		return view;
 	}
+	
+	
 	@RequestMapping(path= "deleteUser.do")
 	public String deleteUser(int id) {
 		boolean user = userDAO.deleteUser(id);
