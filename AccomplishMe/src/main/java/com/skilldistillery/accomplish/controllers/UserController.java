@@ -109,8 +109,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(path= "editUser.do")
-	public ModelAndView editUser(User user, HttpSession session) {
+	public ModelAndView editUser(User user, Integer feet, Integer inches, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		user.setHeight((double)((feet*12) + inches));
 		user = userDAO.editUser(user);
 		session.setAttribute("user", user);
 		mv.setViewName("views/userHome");

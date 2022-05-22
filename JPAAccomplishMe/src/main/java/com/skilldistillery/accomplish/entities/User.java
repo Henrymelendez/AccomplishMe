@@ -1,6 +1,5 @@
 package com.skilldistillery.accomplish.entities;
 
-import java.beans.Transient;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +7,12 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class User {
@@ -25,6 +26,11 @@ public class User {
 	private String password;
 
 	private Double height;
+	
+	@Transient
+	private transient Integer feet;
+	@Transient
+	private transient Integer inches;
 
 	private Double weight;
 
@@ -42,17 +48,21 @@ public class User {
 
 	private Boolean active;
 
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	private List<UserChallenge> userChallenges;
+	
+	@Transient
+	private transient UserChallenge currentUserChallenge;
+	@Transient
+	private transient List<UserChallenge> completedUserChallenges;
+	@Transient
+	private transient List<UserChallenge> abandonedUserChallenges;
 
 	@OneToMany(mappedBy = "creator")
 	private List<Challenge> createdChallenges;
 
 	@OneToMany(mappedBy = "creator")
 	private List<ChallengeDetail> createdChallengeDetails;
-
-	
-	
 
 	public User() {
 		super();
@@ -68,7 +78,7 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.active = active;
-	
+
 	}
 
 	public int getId() {
@@ -257,5 +267,52 @@ public class User {
 			createdChallengeDetails.remove(detail);
 		}
 	}
+
+	public UserChallenge getCurrentUserChallenge() {
+		currentUserChallenge = null;
+		for (UserChallenge userChallenge : userChallenges) {
+			if (userChallenge.getInProgress()) {
+				currentUserChallenge = userChallenge;
+				break;
+			}
+		}
+		return currentUserChallenge;
+	}
+
+	public List<UserChallenge> getCompletedUserChallenges() {
+		completedUserChallenges = new ArrayList<>();
+
+		for (UserChallenge userChallenge : userChallenges) {
+			if (userChallenge.getComplete()) {
+				completedUserChallenges.add(userChallenge);
+			}
+		}
+
+		return completedUserChallenges;
+	}
+
+	public List<UserChallenge> getAbandonedUserChallenges() {
+		abandonedUserChallenges = new ArrayList<>();
+		
+		for (UserChallenge userChallenge : userChallenges) {
+			if (!userChallenge.getComplete() && !userChallenge.getInProgress()) {
+				abandonedUserChallenges.add(userChallenge);
+			}
+		}
+		
+		return abandonedUserChallenges;
+	}
+
+	public Integer getFeet() {
+		feet = (int) (height/12);
+		return feet;
+	}
+
+	public Integer getInches() {
+		inches = (int) (height%12);
+		return inches;
+	}
+	
+	
 
 }
