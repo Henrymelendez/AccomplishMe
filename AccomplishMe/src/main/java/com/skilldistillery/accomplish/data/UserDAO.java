@@ -10,5 +10,6 @@ public interface UserDAO {
 	User createaUser(User user);
 	boolean deleteUser(int userId);
 	User editUser(User user);
+	User editUsernamePassword(User user);
 
 }

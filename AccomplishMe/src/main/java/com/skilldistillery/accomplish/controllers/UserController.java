@@ -117,4 +117,44 @@ public class UserController {
 		return mv;
 	}
 	
+	@RequestMapping(path = "startEditUsernamePassword.do")
+	public ModelAndView startUsernamePassword(HttpSession session, RedirectAttributes redir) {
+		ModelAndView mv = new ModelAndView();
+		User user = (User) session.getAttribute("user");
+		if(user !=null) {
+			mv.addObject("user", user);
+			mv.setViewName("views/changePasswordAndUsername");
+		}else {
+			mv.setViewName("redirect:home.do");
+		}
+		return mv;
+	}
+	@RequestMapping(path= "editUsernamePassword.user")
+	public ModelAndView editUsernamePassword(String username, String password, String newPassword, String confirmPassword, HttpSession session,
+			RedirectAttributes redir) {
+		ModelAndView mv = new ModelAndView();
+		StringBuilder sb = new StringBuilder();
+		sb.append("Succesfully Updated");
+		User user = (User) session.getAttribute("user");
+		user.getUserChallenges().size();
+		if(!user.getUsername().equals(username)) {
+			user.setUsername(username);
+			sb.append(" username");
+		}
+		if(password.equals(user.getPassword()) && !newPassword.isEmpty() && newPassword.equals(confirmPassword)) {
+			user.setPassword(newPassword);
+			sb.append(" password");
+		}
+		user = userDAO.editUsernamePassword(user);
+		if(sb.toString().equals("Succesfully Updated")) {
+			sb.delete(0, sb.length());
+			sb.append("Could not update");
+		}
+		redir.addFlashAttribute("user", user);
+		redir.addFlashAttribute("message", sb.toString());
+		session.setAttribute("user", user);
+		mv.setViewName("redirect:loginRedirect.do");
+		return mv;
+	}
+	
 }
