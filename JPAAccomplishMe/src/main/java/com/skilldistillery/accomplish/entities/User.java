@@ -1,5 +1,6 @@
 package com.skilldistillery.accomplish.entities;
 
+import java.beans.Transient;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,7 @@ public class User {
 
 	@OneToMany(mappedBy = "creator")
 	private List<ChallengeDetail> createdChallengeDetails;
+
 	
 	
 
