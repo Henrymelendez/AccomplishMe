@@ -105,8 +105,10 @@ h3 {
 }
 
 .dropdown-menu{
-	background-color: #925252;
+	background-color: #925252 !important;
 	align-items: left;
 	max-width: auto;
 
 }
+
+

@@ -22,7 +22,7 @@ public class ChallengeController {
 	ChallengeDAO challengeDAO;
 	
 	
-	@RequestMapping(path = "createChallenge.do", method = RequestMethod.GET)
+	@RequestMapping(path = "createChallenge.ch", method = RequestMethod.GET)
 	public String createChallengePage(Model model) {
 		List<Challenge> challenges = challengeDAO.findAll();
 		model.addAttribute("challenges", challenges);
@@ -31,7 +31,7 @@ public class ChallengeController {
 	}
 	
 	
-	@RequestMapping(path= "createChallenge.do", method = RequestMethod.POST)
+	@RequestMapping(path= "createChallenge.ch", method = RequestMethod.POST)
 	public String createChallenge(Challenge challenge ) {
 		String view = "";
 		challengeDAO.createChallenge(challenge);
@@ -40,7 +40,7 @@ public class ChallengeController {
 		return "";
 	}
 	
-	@RequestMapping(path = "deleteChallenge.do", method = RequestMethod.POST)
+	@RequestMapping(path = "deleteChallenge.ch", method = RequestMethod.POST)
 	public String deleteChallenge(int id) {
 		boolean challenge = challengeDAO.deleteChallenge(id);
 		
@@ -54,7 +54,7 @@ public class ChallengeController {
 		
 	}
 	
-	@RequestMapping(path = "editChallenge.do", method = RequestMethod.GET)
+	@RequestMapping(path = "editChallenge.ch", method = RequestMethod.GET)
 	public ModelAndView startEditChallenge(HttpSession session, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
 		User user = (User) session.getAttribute("user");
@@ -71,8 +71,8 @@ public class ChallengeController {
 	
 	
 	
-	@RequestMapping(path= "editChallenge.do")
-	public ModelAndView editUser(Challenge challenge, HttpSession session) {
+	@RequestMapping(path= "editChallenge.ch", method = RequestMethod.POST)
+	public ModelAndView editChallenge(Challenge challenge, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		Challenge added = challengeDAO.editChallenge(challenge);
 		session.setAttribute("challenge", added);

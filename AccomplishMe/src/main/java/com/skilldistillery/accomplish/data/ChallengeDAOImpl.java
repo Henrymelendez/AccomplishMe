@@ -46,7 +46,7 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 	@Override
 	public boolean deleteChallenge(int challengeId) {
 		boolean challengeDeleted = false;
-		Challenge challenge = em.find(Challenge.class, challengeDeleted);
+		Challenge challenge = em.find(Challenge.class, challengeId);
 		if(challenge !=null) {
 			challenge.setActive(false);
 			challengeDeleted = !challenge.getActive();
@@ -73,7 +73,7 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 
 	@Override
 	public List<Challenge> findAll() {
-		String jpql = "SELECT u FROM Challenge u";
+		String jpql = "SELECT u FROM Challenge u WHERE u.active = 1";
 		List<Challenge> challenges = em.createQuery(jpql, Challenge.class)
 				.getResultList();
 		
