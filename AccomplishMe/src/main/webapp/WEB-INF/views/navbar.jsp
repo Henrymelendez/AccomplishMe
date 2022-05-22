@@ -28,7 +28,7 @@
   </a>
 
   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-xxl-start" aria-labelledby="dropdownMenuLink">
-    <li><a class="dropdown-item" href="createChallenge.do">User Tasks</a></li>
+    <li><a class="dropdown-item" href="userTasks.user">User Tasks</a></li>
     <li><a class="dropdown-item" href="#">Settings</a></li>
     <li><a class="dropdown-item" href="#">Logout</a></li>
   </ul>

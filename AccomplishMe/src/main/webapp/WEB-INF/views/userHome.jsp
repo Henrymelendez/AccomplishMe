@@ -25,6 +25,7 @@
 	</span>
 	</c:when>
 	</c:choose>
+
  <div class="row" >
 <div class="col-4">
 <c:choose>
@@ -63,6 +64,15 @@
  </div>
 
  </div>
+ 
+ 	 <div class=row>
+ <c:choose>
+ <c:when test="${! empty message}">
+ <h4>${message}</h4>
+ </c:when>
+ </c:choose>
+ </div>
+
 
 </main>
 <%@ include file="../JSInclude.jsp" %>
