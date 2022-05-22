@@ -1,11 +1,12 @@
 package com.skilldistillery.accomplish.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,10 +23,11 @@ public class ChallengeController {
 	
 	
 	@RequestMapping(path = "createChallenge.do", method = RequestMethod.GET)
-	public String createChallengePage() {
+	public String createChallengePage(Model model) {
+		List<Challenge> challenges = challengeDAO.findAll();
+		model.addAttribute("challenges", challenges);
 		
-		
-		return "";
+		return "views/editChallenge";
 	}
 	
 	
@@ -58,7 +60,7 @@ public class ChallengeController {
 		User user = (User) session.getAttribute("user");
 		if(user !=null) {
 			mv.addObject("user", user);
-			mv.setViewName("views/FIXME");
+			mv.setViewName("views/editChallenge");
 		}else {
 			mv.setViewName("redirect:home.do");
 		}

@@ -10,6 +10,6 @@ public interface ChallengeDAO {
 	Challenge createChallenge(Challenge challenge);
 	boolean deleteChallenge(int challengeId);
 	Challenge editChallenge(Challenge challenge);
-	List<Challenge> findByKeyword(String keyword);
+	List<Challenge> findAll();
 
 }
