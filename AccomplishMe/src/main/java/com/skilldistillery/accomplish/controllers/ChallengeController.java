@@ -69,7 +69,14 @@ public class ChallengeController {
 	
 	
 	
-	
+	@RequestMapping(path= "editChallenge.do")
+	public ModelAndView editUser(Challenge challenge, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		Challenge added = challengeDAO.editChallenge(challenge);
+		session.setAttribute("challenge", added);
+		mv.setViewName("views/FIXME");
+		return mv;
+	}
 	
 	
 	
