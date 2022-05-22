@@ -26,7 +26,7 @@
 
    	<div class="col-sm-4">
    	<br><br>
-    <form action="login.do" method="GET">
+    <form action="login.do" method="post">
     <div class="login">
 
       <i class="fa fa-empire" aria-hidden="true"></i>

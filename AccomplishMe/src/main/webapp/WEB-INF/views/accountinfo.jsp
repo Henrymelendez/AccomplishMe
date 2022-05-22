@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,15 +26,19 @@ ${inches = user.height - (feet*12)}
 <h2>${user.firstName} ${user.lastName}</h2>
 <form action="editUser.do">
 <input type="text" value="${user.id }" name="id" hidden="true">
-<input type="text" value="${user.firstName }" name="firstName">
-<input type="text" value="${user.lastName }" name="lastName">
-<input type="text" value="${user.height}" name="height">
-<input type="text" value="${user.weight}" name= weight>
+<label>First Name:</label><input type="text" value="${user.firstName }" name="firstName">
+<label>Last Name:</label><input type="text" value="${user.lastName }" name="lastName"><br>
+<label>Height (inches)</label><input type="text" value="${user.height}" name="height">
+<label>Weight (lbs)</label><input type="text" value="${user.weight}" name= weight>
 <input type="submit" value="Save Changes">
 </form>
 </div>
 <div class="col-4">
-<button>Change your username or password?</button>
+	<form action="startEditUsernamePassword.do">
+		<input type="text" hidden="true" value="${user.id }" name="id" /> 
+		<input type="submit" value="Change your username or password">
+	</form>
+<!-- <button>Change your username or password?</button> -->
 
 <form action="deleteUser.do">
 <input type="text" value="${user.id}" name="id" hidden="true">
