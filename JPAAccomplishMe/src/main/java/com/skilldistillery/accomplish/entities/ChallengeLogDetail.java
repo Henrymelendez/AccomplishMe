@@ -2,6 +2,7 @@ package com.skilldistillery.accomplish.entities;
 
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class ChallengeLogDetail {
 	@Column(name = "pages_read")
 	private Integer pagesRead;
 	private Boolean active;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="challenge_log_id")
 	private ChallengeLog challengeLog;
 	

@@ -55,25 +55,32 @@ public class UserController {
 		return view;
 	}
 	
-	@RequestMapping(path= "login.do")
+	@RequestMapping(path= "login.do", method = RequestMethod.POST)
 	public String login(String username, String password, HttpSession session, RedirectAttributes redir, Model model) {
 		String view = "home";
 		User user = userDAO.findByUserNameAndPassword(username, password);
 		if(user != null) {
 			session.setAttribute("user", user);
+			redir.addFlashAttribute("user", user);
 			
 			for (UserChallenge challenge : user.getUserChallenges()) {
 				if(challenge.getActive()) {
-					model.addAttribute("challenge", challenge);
+					challenge.getChallengeLogs().size();
+					redir.addFlashAttribute("challenge", challenge);
 					break;
 				}
 			}
-			model.addAttribute("page", "Me");
-			view = "views/userHome";
+			redir.addFlashAttribute("page", "Me");
+			view = "redirect:loginRedirect.do";
 		} else {
-			redir.addFlashAttribute("message", "Username or Password is incorrect");
+			model.addAttribute("message", "Username or Password is incorrect");
 		}
 		return view;
+	}
+	
+	@RequestMapping(path="loginRedirect.do")
+	public String loginRedirect() {
+		return "views/userHome";
 	}
 	
 	
