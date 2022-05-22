@@ -3,6 +3,7 @@ package com.skilldistillery.accomplish.data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -24,13 +25,19 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User findByUserNameAndPassword(String username, String password) {
-		String jpql = "SELECT u FROM User u WHERE u.username = :username";
-		User user = em.createQuery(jpql, User.class).setParameter("username", username).getSingleResult();
-		if (user != null && user.getPassword().equals(password)) {
-			return user;
+		String jpql = "SELECT u FROM User u WHERE u.username = :username AND u.active = 1";
+		User user = null;
+		try {
+			user = em.createQuery(jpql, User.class).setParameter("username", username).getSingleResult();
+			
+		} catch (NoResultException e){
+			
+		}
+		if (user != null && !user.getPassword().equals(password)) {
+			user = null;
 		}
 
-		return null;
+		return user;
 	}
 
 	@Override

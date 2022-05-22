@@ -21,7 +21,7 @@
 </main>
 
 <div class="btn-toolbar">
-	<button class="btn btn-primary">Add Challenge to journal</button>
+	<button class="btn btn-primary">Accept Challenge</button>
 	
 </div>
 

@@ -85,13 +85,15 @@ public class UserController {
 	
 	
 	@RequestMapping(path= "deleteUser.do")
-	public String deleteUser(int id) {
-		boolean user = userDAO.deleteUser(id);
+	public String deleteUser(int id, HttpSession session, RedirectAttributes redir) {
+		boolean deleted = userDAO.deleteUser(id);
+		session.removeAttribute("user");
 		
-		if(user == true) {
-			return "userAccountDeleted";
+		if(deleted == true) {
+			return "redirect:home.do";
 		}else {
-			return "unsuccessful";
+			redir.addFlashAttribute("message", "unable to delete account");
+			return "redirect:loginRedirect.do";
 		}
 	}
 	
@@ -156,6 +158,13 @@ public class UserController {
 		session.setAttribute("user", user);
 		mv.setViewName("redirect:loginRedirect.do");
 		return mv;
+	}
+	
+	@RequestMapping(path="userTasks.user")
+	public String userTasks(HttpSession session) {
+		
+		
+		return "views/userTasks";
 	}
 	
 }
