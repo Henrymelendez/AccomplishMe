@@ -38,13 +38,13 @@
 	<td style="max-width: 300px;">${t.description }</td>
 	<td>${t.duration }</td>
 	  <td>
-		<form id="select" method="GET" action="selectChallenge.uch"><input type="text" name="id" value="${t.id }" hidden="true"></input> </form>
+		<form id="select" method="post" action="selectChallenge.uch"><input type="text" name="id" value="${t.id }" hidden="true"></input> </form>
+		 <form id="edit" method="post" action="editChallenge.ch"><input type="text" name="id" value="${t.id }" hidden="true"></input> </form>
+	  	<form id="myform" method="post" action="deleteChallenge.ch"><input type="text" name="id" value="${t.id }" hidden="true"></input> </form>
 		 <a class="btn btn-primary" onclick="document.getElementById('select').submit();" ><i class="fa fa-check" ></i></a> |
 		 
-		 <form id="edit" method="GET" action="editChallenge.ch"><input type="text" name="id" value="${t.id }" hidden="true"></input> </form>
 		 <a href="#" class="btn btn-warning" onclick="document.getElementById('edit').submit();"><i class="fas fa-edit"></i></a>
 		 
-	  	<form id="myform" method="post" action="deleteChallenge.ch"><input type="text" name="id" value="${t.id }" hidden="true"></input> </form>
 		 <a class="btn btn-danger" onclick="document.getElementById('myform').submit();" ><i class="fas fa-trash"></i></a> |
 	</td>
 	</tr>
