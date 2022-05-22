@@ -20,11 +20,8 @@
 <h2>${user.firstName} ${user.lastName}</h2>
 <form action="editUsernamePassword.user">
 <input type="text" value="${user.id }" name="id" hidden="true">
-<label for="username">Username</label>
 <input type="text" value="${user.username }" name="username" id="username">
-<label for="password">password</label>
 <input type="password" name="password" id="password" placeholder="Current Password">
-<label for="newPassword">Enter new password</label>
 <input type="password" name="newPassword" id="newPassword" placeholder="New Password">
 <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
 <input type="submit" value="Save Changes">
