@@ -25,7 +25,7 @@ public class ChallengeController {
 	}
 	
 	
-	@RequestMapping(path= "createChallenge.do", method = RequestMethod.GET)
+	@RequestMapping(path= "createChallenge.do", method = RequestMethod.POST)
 	public String createChallenge(Challenge challenge ) {
 		String view = "";
 		challengeDAO.createChallenge(challenge);
