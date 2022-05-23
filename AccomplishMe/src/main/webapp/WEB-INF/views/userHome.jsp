@@ -15,18 +15,16 @@
  <%@ include file="navbar.jsp" %>
 </div>
 	
-	<span hidden="true">
 	<c:choose>
 	<c:when test="${! empty user.currentUserChallenge}">
 		<c:set var="userChallenge" value="${user.currentUserChallenge }"></c:set>
 	</c:when>	
 	</c:choose>
-	</span>
 
  <div class="row" >
 <div class="col-4">
 <c:choose>
-<c:when test="${! empty challenge}">
+<c:when test="${! empty userChallenge}">
 	<h2>Challenge: ${userChallenge.challenge.name}</h2>
 	<p>${userChallenge.challenge.description}</p>
 	<br>

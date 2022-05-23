@@ -20,12 +20,13 @@ public class UserController {
 	private UserDAO userDAO;
 	
 	@RequestMapping(path={"/", "home.do"})
-	public String home(Model model, HttpSession session) {
+	public String home(Model model, HttpSession session, RedirectAttributes redir) {
 		String view = "home";
 		User user = (User)session.getAttribute("user");
 		if(user != null) {
-			session.setAttribute("user", user);
-			view = "views/userHome";
+//			session.setAttribute("user", user);
+			redir.addFlashAttribute("page", "Me");
+			view = "redirect:loginRedirect.do";
 		}
 		
 		return view;
@@ -61,15 +62,7 @@ public class UserController {
 		User user = userDAO.findByUserNameAndPassword(username, password);
 		if(user != null) {
 			session.setAttribute("user", user);
-			redir.addFlashAttribute("user", user);
-			
-			for (UserChallenge challenge : user.getUserChallenges()) {
-				if(challenge.getInProgress()) {
-					challenge.getChallengeLogs().size();
-					redir.addFlashAttribute("challenge", challenge);
-					break;
-				}
-			}
+			user.getCurrentUserChallenge().getChallengeLogs().size();
 			redir.addFlashAttribute("page", "Me");
 			view = "redirect:loginRedirect.do";
 		} else {
@@ -79,7 +72,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="loginRedirect.do")
-	public String loginRedirect() {
+	public String loginRedirect(HttpSession session) {
+		System.out.println(session.getAttribute("user"));
 		return "views/userHome";
 	}
 	
