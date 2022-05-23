@@ -62,7 +62,9 @@ public class UserController {
 		User user = userDAO.findByUserNameAndPassword(username, password);
 		if(user != null) {
 			session.setAttribute("user", user);
+			if(user.getCurrentUserChallenge() != null && user.getCurrentUserChallenge().getChallengeLogs() != null)  {
 			user.getCurrentUserChallenge().getChallengeLogs().size();
+			}
 			redir.addFlashAttribute("page", "Me");
 			view = "redirect:loginRedirect.do";
 		} else {
@@ -73,7 +75,7 @@ public class UserController {
 	
 	@RequestMapping(path="loginRedirect.do")
 	public String loginRedirect(HttpSession session) {
-		System.out.println(session.getAttribute("user"));
+	
 		return "views/userHome";
 	}
 	

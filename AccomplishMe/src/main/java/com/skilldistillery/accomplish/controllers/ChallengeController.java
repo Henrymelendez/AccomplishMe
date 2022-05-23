@@ -70,14 +70,17 @@ public class ChallengeController {
 	}
 	
 	@RequestMapping(path = "editChallenge.ch", method = RequestMethod.GET)
-	public ModelAndView startEditChallenge(HttpSession session, RedirectAttributes redir) {
+	public ModelAndView startEditChallenge(int id, HttpSession session, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-		User user = (User) session.getAttribute("user");
-		if(user !=null) {
-			mv.addObject("user", user);
+		Challenge chal = challengeDAO.findById(id);
+		
+		
+		if(chal !=null) {
+			mv.addObject("challenge", chal);
 			mv.setViewName("views/editChallenge");
 		}else {
-			mv.setViewName("redirect:home.do");
+			redir.addFlashAttribute("message","Unable to Edit challenge");
+			mv.setViewName("redirect:loginRedirect.do");
 		}
 		
 		return mv;
@@ -87,11 +90,15 @@ public class ChallengeController {
 	
 	
 	@RequestMapping(path= "editChallenge.ch", method = RequestMethod.POST)
-	public ModelAndView editChallenge(Challenge challenge, HttpSession session) {
+	public ModelAndView editChallenge(Challenge challenge, HttpSession session, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
+		
 		Challenge added = challengeDAO.editChallenge(challenge);
 		session.setAttribute("challenge", added);
-		mv.setViewName("views/FIXME");
+		mv.setViewName("redirect:findChallenges.ch");
+		redir.addFlashAttribute("page","Challenge");
+		
+		
 		return mv;
 	}
 	
