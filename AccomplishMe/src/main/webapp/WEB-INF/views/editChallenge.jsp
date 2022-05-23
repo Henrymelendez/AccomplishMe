@@ -38,14 +38,15 @@
 	<td style="max-width: 300px;">${t.description }</td>
 	<td>${t.duration }</td>
 	  <td>
-		<form id="select" method="post" action="selectChallenge.uch"><input type="text" name="id" value="${t.id }" hidden="true"></input> </form>
-		 <form id="edit" method="post" action="editChallenge.ch"><input type="text" name="id" value="${t.id }" hidden="true"></input> </form>
-	  	<form id="myform" method="post" action="deleteChallenge.ch"><input type="text" name="id" value="${t.id }" hidden="true"></input> </form>
-		 <a class="btn btn-primary" onclick="document.getElementById('select').submit();" ><i class="fa fa-check" ></i></a> |
+		<form id="${t.name}_select" method="get" action="selectChallenge.uch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
+		 <form id="${t.name}_edit" method="get" action="editChallenge.ch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
+	  	<form id="${t.name}_delete" method="post" action="deleteChallenge.ch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
 		 
-		 <a href="#" class="btn btn-warning" onclick="document.getElementById('edit').submit();"><i class="fas fa-edit"></i></a>
+		 <a class="btn btn-primary" onclick="document.getElementById('${t.name}_select').submit();" ><i class="fa fa-check" ></i></a> |
 		 
-		 <a class="btn btn-danger" onclick="document.getElementById('myform').submit();" ><i class="fas fa-trash"></i></a> |
+		 <a href="#" class="btn btn-warning" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
+		 
+		 <a class="btn btn-danger" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> |
 	</td>
 	</tr>
 	</c:forEach>

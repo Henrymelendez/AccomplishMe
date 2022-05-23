@@ -14,24 +14,21 @@
 <div class="row">
  <%@ include file="navbar.jsp" %>
 </div>
+	
+	<span hidden="true">
 	<c:choose>
-	<c:when test="${! empty sessionScope}">
-	<span hidden="true">${user = sessionScope.user}
-	<c:choose>
-	<c:when test="${! empty user.userChallenges}">
-	${challenge = user.userChallenges.get(0)}
+	<c:when test="${! empty user.currentUserChallenge}">
+		<c:set var="userChallenge" value="${user.currentUserChallenge }"></c:set>
 	</c:when>	
 	</c:choose>
 	</span>
-	</c:when>
-	</c:choose>
 
  <div class="row" >
 <div class="col-4">
 <c:choose>
 <c:when test="${! empty challenge}">
-	<h2>Challenge: ${challenge.challenge.name}</h2>
-	<p>${challenge.challenge.description}</p>
+	<h2>Challenge: ${userChallenge.challenge.name}</h2>
+	<p>${userChallenge.challenge.description}</p>
 	<br>
 	<br>
 	<br>
@@ -47,8 +44,8 @@
  <div class="col-4 scroll" >
  	<h2>Journal Entries</h2>
  	<c:choose>
- 	<c:when test="${! empty challenge.challengeLogs}">
-	<c:forEach items="${challenge.challengeLogs}" var="log" >
+ 	<c:when test="${! empty userChallenge.challengeLogs}">
+	<c:forEach items="${userChallenge.challengeLogs}" var="log" >
 		<c:choose>
 		<c:when test="${! empty log }">
 		<a href="showLog.do?${log.id }">${log.entryDate }</a>

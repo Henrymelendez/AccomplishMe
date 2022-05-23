@@ -64,7 +64,7 @@ public class UserController {
 			redir.addFlashAttribute("user", user);
 			
 			for (UserChallenge challenge : user.getUserChallenges()) {
-				if(challenge.getActive()) {
+				if(challenge.getInProgress()) {
 					challenge.getChallengeLogs().size();
 					redir.addFlashAttribute("challenge", challenge);
 					break;

@@ -269,15 +269,24 @@ public class User {
 	}
 
 	public UserChallenge getCurrentUserChallenge() {
-		currentUserChallenge = null;
+	
+		if (currentUserChallenge == null){
+			
 		for (UserChallenge userChallenge : userChallenges) {
 			if (userChallenge.getInProgress()) {
 				currentUserChallenge = userChallenge;
 				break;
 			}
 		}
+		
+		}
 		return currentUserChallenge;
 	}
+	
+	public void setCurrentUserChallenge(UserChallenge userChallenge) {
+		currentUserChallenge = userChallenge;
+	}
+	
 
 	public List<UserChallenge> getCompletedUserChallenges() {
 		completedUserChallenges = new ArrayList<>();

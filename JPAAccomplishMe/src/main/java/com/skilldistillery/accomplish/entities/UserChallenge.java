@@ -47,7 +47,7 @@ public class UserChallenge {
 	private Challenge challenge;
 	
 	@OneToMany(mappedBy = "userChallenge", fetch = FetchType.EAGER)
-	private List<ChallengeLog> challengeLogs;
+	private List<ChallengeLog> challengeLogs = new ArrayList<>();
 	
 	
 
