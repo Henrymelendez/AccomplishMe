@@ -37,7 +37,7 @@
         <div class="group"><input type="password" name="password" placeholder="password"><i
           class="fa fa-lock"></i></div>
           <input type="submit" name="button" value="Login" formaction="login.do"/>
-          <input type="submit" name="button" value="Register" formaction="createUser.do"/>
+          <input type="submit" name="button" value="Register" formaction="createUser.do" formmethod="get"/>
 
 
     </div>

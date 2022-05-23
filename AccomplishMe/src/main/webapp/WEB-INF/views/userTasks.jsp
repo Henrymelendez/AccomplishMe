@@ -16,7 +16,7 @@
 <div class="row">
 
 <div class="col-4">
-<form action="createChallenge.ch">
+<form action="findChallenges.ch">
 <input type="submit" value="Select a Challenge">
 </form>
 </div>

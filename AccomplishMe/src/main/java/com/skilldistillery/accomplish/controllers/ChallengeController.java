@@ -22,22 +22,37 @@ public class ChallengeController {
 	ChallengeDAO challengeDAO;
 	
 	
-	@RequestMapping(path = "createChallenge.ch", method = RequestMethod.GET)
+	@RequestMapping(path = "findChallenges.ch", method = RequestMethod.GET)
 	public String createChallengePage(Model model) {
 		List<Challenge> challenges = challengeDAO.findAll();
 		model.addAttribute("challenges", challenges);
 		
-		return "views/editChallenge";
+		return "views/findChallenges";
 	}
 	
 	
 	@RequestMapping(path= "createChallenge.ch", method = RequestMethod.POST)
-	public String createChallenge(Challenge challenge ) {
-		String view = "";
-		challengeDAO.createChallenge(challenge);
+	public String createChallenge(Challenge challenge, RedirectAttributes redir, HttpSession session) {
+		String view = "redirect:loginRedirect.do";
+		User user = (User) session.getAttribute("user");
+		challenge.setActive(true);
+		challenge.setCreator(user);
+		challenge = challengeDAO.createChallenge(challenge);
+		if(challenge != null) {
+			view = "redirect:findChallenges.ch";
+			redir.addFlashAttribute("page", "Challenge");
+		}else {
+			redir.addFlashAttribute("message", "Unable to add Challenge");
+			redir.addFlashAttribute("page", "Me");
+		}
+		return view;
+	}
+	@RequestMapping(path= "createChallenge.ch", method = RequestMethod.GET)
+	public String startCreateChallenge() {
+		String view = "views/createNewChallenge";
 		
 		
-		return "";
+		return view;
 	}
 	
 	@RequestMapping(path = "deleteChallenge.ch", method = RequestMethod.POST)
