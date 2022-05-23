@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "user_challenge")
@@ -49,6 +50,8 @@ public class UserChallenge {
 	@OneToMany(mappedBy = "userChallenge", fetch = FetchType.EAGER)
 	private List<ChallengeLog> challengeLogs = new ArrayList<>();
 	
+	@Transient
+	private transient ChallengeLog mostRecent;
 	
 
 	
@@ -139,6 +142,7 @@ public class UserChallenge {
 	}
 
 	public Challenge getChallenge() {
+		
 		return challenge;
 	}
 
@@ -176,6 +180,18 @@ public class UserChallenge {
 		return "UserChallenge [id=" + id + ", details=" + details + ", startDate=" + startDate + ", endDate=" + endDate
 				+ ", complete=" + complete + ", inProgress=" + inProgress + ", active=" + active + ", user=" + user
 				+ "]";
+	}
+
+	public ChallengeLog getMostRecent() {
+		if(mostRecent == null && !challengeLogs.isEmpty()) {
+			challengeLogs.sort( (c1, c2) -> c1.getEntryDate().compareTo(c2.getEntryDate()));
+			mostRecent = challengeLogs.get(0);
+		}
+		return mostRecent;
+	}
+
+	public void setMostRecent(ChallengeLog mostRecent) {
+		this.mostRecent = mostRecent;
 	}
 	
 	
