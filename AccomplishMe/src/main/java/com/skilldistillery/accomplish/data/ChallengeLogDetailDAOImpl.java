@@ -34,11 +34,16 @@ public class ChallengeLogDetailDAOImpl implements ChallengeLogDetailDAO {
 	}
 
 	@Override
-	public boolean removeLogDetail(ChallengeLogDetail logDetail) {
-		ChallengeLogDetail managed =  em.find(ChallengeLogDetail.class, logDetail.getId());
+	public ChallengeLogDetail removeLogDetail(ChallengeLogDetail detail) {
+		ChallengeLogDetail managed =  em.find(ChallengeLogDetail.class, detail.getId());
 		managed.setActive(false);
 		
-		return !managed.getActive();
+		return managed;
+	}
+
+	@Override
+	public ChallengeLogDetail findById(int id) {
+		return em.find(ChallengeLogDetail.class, id);
 	}
 
 }

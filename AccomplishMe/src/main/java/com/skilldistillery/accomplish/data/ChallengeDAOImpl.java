@@ -4,10 +4,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContexts;
 import javax.transaction.Transactional;
 
-import org.aspectj.apache.bcel.generic.BranchHandle;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.accomplish.entities.Challenge;

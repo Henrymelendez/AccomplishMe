@@ -102,7 +102,16 @@ public class ChallengeLog {
 	}
 
 	public List<ChallengeLogDetail> getChallengeLogDetails() {
-		return new ArrayList<>(challengeLogDetails);
+		List<ChallengeLogDetail> sorted = new ArrayList<>();
+		if(!challengeLogDetails.isEmpty()) {
+			for (ChallengeLogDetail detail : challengeLogDetails) {
+				if(detail.getActive()) {
+					sorted.add(detail);
+				}
+			}
+		}
+		
+		return sorted;
 	}
 
 	public void setChallengeLogDetails(List<ChallengeLogDetail> challengeLogDetails) {
@@ -113,7 +122,7 @@ public class ChallengeLog {
 		if (workouts == null && !challengeLogDetails.isEmpty()) {
 			workouts = new ArrayList<>();
 			for (ChallengeLogDetail detail : challengeLogDetails) {
-				if (detail.getChallengeDetail().getCategory().getName().equals("workout")) {
+				if (detail.getChallengeDetail().getCategory().getName().equals("workout") && detail.getActive()) {
 					workouts.add(detail);
 				}
 			}
@@ -129,7 +138,7 @@ public class ChallengeLog {
 		if (meals == null && !challengeLogDetails.isEmpty()) {
 			meals = new ArrayList<>();
 			for (ChallengeLogDetail detail : challengeLogDetails) {
-				if (detail.getChallengeDetail().getCategory().getName().equals("food")) {
+				if (detail.getChallengeDetail().getCategory().getName().equals("food") && detail.getActive()) {
 					meals.add(detail);
 				}
 			}
@@ -145,7 +154,7 @@ public class ChallengeLog {
 		if (books == null && !challengeLogDetails.isEmpty()) {
 			books = new ArrayList<>();
 			for (ChallengeLogDetail detail : challengeLogDetails) {
-				if (detail.getChallengeDetail().getCategory().getName().equals("book")) {
+				if (detail.getChallengeDetail().getCategory().getName().equals("book") && detail.getActive()) {
 					books.add(detail);
 				}
 			}

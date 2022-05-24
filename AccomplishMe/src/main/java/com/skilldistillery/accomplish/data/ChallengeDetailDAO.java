@@ -10,6 +10,7 @@ public interface ChallengeDetailDAO {
 	ChallengeDetail addDetail(ChallengeDetail detail);
 	ChallengeDetail editDetail(ChallengeDetail detail);
 	ChallengeDetail removeDetail(ChallengeDetail detail);
+	ChallengeDetail findbyId(int id);
 	
 
 }

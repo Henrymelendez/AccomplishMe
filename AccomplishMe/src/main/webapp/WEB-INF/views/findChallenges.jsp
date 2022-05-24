@@ -48,12 +48,12 @@
 		 <form id="${t.name}_edit" method="get" action="editChallenge.ch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
 	  	<form id="${t.name}_delete" method="post" action="deleteChallenge.ch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
 		 
-		 <a class="btn btn-primary" onclick="document.getElementById('${t.name}_select').submit();" ><i class="fa fa-check" ></i></a> |
+		 <a class="btn btn-primary" onclick="document.getElementById('${t.name}_select').submit();" ><i class="fa fa-check" ></i></a> 
 		 <c:choose> 
 		 <c:when test="${user.id == t.creator.id }">
-		 <a href="#" class="btn btn-warning" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
+		 | <a href="#" class="btn btn-warning" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
 		 
-		 <a class="btn btn-danger" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> |
+		 | <a class="btn btn-danger" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> 
 		</c:when>
 		</c:choose>
 	</td>

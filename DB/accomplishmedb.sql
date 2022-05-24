@@ -474,8 +474,8 @@ COMMIT;
 START TRANSACTION;
 USE `accomplishmedb`;
 INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (1, 1, 'Swimming (freestyle)', 0, 5.8, 0, '\"Swimming is a low-impact, whole body cardio workout\"', 2, DEFAULT);
-INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (2, 2, 'Carrot', 30, 0, 0, NULL, 2, DEFAULT);
-INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (3, 3, '\'The Secret Life of Cats\'', NULL, NULL, 290, '\"A book about cats\"', 2, DEFAULT);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (2, 3, 'Carrot', 30, 0, 0, NULL, 2, DEFAULT);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (3, 2, '\'The Secret Life of Cats\'', NULL, NULL, 290, '\"A book about cats\"', 2, DEFAULT);
 
 COMMIT;
 

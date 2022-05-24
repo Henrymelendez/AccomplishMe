@@ -35,7 +35,6 @@ public class ChallengeLogDAOImpl implements ChallengeLogDAO{
 	public boolean deleteChallengeLog(ChallengeLog log) {
 		ChallengeLog managedLog = em.find(ChallengeLog.class, log.getId());
 		managedLog.setActive(false);
-		managedLog = em.find(ChallengeLog.class, log.getId());
 		return managedLog.getActive();
 	}
 

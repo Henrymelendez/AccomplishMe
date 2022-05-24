@@ -322,6 +322,16 @@ public class User {
 		return inches;
 	}
 	
+	public ChallengeLog findLogById(int id) {
+		ChallengeLog challengeLog = null;
+		for (ChallengeLog log : currentUserChallenge.getChallengeLogs()) {
+			if (log.getId() == id) {
+				challengeLog = log;
+			}
+		}
+		return challengeLog;
+	}
+	
 	
 
 }
