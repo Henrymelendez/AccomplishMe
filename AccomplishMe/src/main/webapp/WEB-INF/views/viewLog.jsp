@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +15,6 @@
 <div class="row">
  <%@ include file="navbar.jsp" %>
 </div>
-<c:choose>
-<c:when test="${! empty log }">
 <div class="row">
 <h1>${log.entryDate }</h1>
 </div>
@@ -31,6 +30,11 @@
 <input type="submit" value="Delete this Entry">
 </form></div>
 </div>
+
+
+<c:choose>
+<c:when test="${! empty log }">
+
 <br>
 <hr>
 <div class="row">
@@ -43,7 +47,7 @@
 	<h4>${workout.challengeDetail.name}</h4>
 	<ul>
 	<li>Duration: ${ workout.duration}</li>
-	<li>Calories burned: ${((workout.duration/60)*workout.challengeDetail.met)*user.weight }</li>
+	<li>Calories burned: <fmt:formatNumber type="number" maxFractionDigits = "2"  value = "${((workout.duration/60)*workout.challengeDetail.met)*user.weight }"/></li>
 	</ul>
 	<form action="removeChallengeDetail.cld" method="POST">
 		<input hidden="true" type="text" name = "id" value="${workout.id}">
