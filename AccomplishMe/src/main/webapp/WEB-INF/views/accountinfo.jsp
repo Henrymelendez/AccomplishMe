@@ -54,14 +54,14 @@ ${inches = user.height - (feet*12)}
 	<c:choose>
 	<c:when test="${userChallenge == user.currentUserChallenge}">
 		<p>Current User Challenge</p>
-	 	<form action="abandonChallenge.uch">
+	 	<form action="abandonChallenge.uch" method="POST">
 	 	  <input hidden="true" name="id" value="${userChallenge.id}">
 	 	  <input type="submit" value="Abandon">	
 	 	</form>
 	</c:when>
 	</c:choose>
-		<form action="removeChallenge.ch">
-		  <input hidden="true" name="id" value="${userChallenge.challenge.id}">
+		<form action="removeChallenge.uch" method="POST">
+		  <input hidden="true" name="id" value="${userChallenge.id}">
 		  <input type="submit" value="Remove">
 		</form>
   </c:forEach>

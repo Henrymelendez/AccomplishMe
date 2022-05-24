@@ -76,5 +76,48 @@ public class UserChallengeController {
 	}
 	
 	
+	@RequestMapping(path = "abandonChallenge.uch", method = RequestMethod.POST)
+	public String abandonChallenge(HttpSession session, int id, RedirectAttributes redir) {
+		User user = (User) session.getAttribute("user");
+		
+		UserChallenge uc =  user.getCurrentUserChallenge();
+		
+		uc = ucDao.abandonUserChallenge(uc);
+		
+		user.getCurrentUserChallenge().setInProgress(false);
+		
+		user.setCurrentUserChallenge(null);
+
+		redir.addFlashAttribute("page", "Me");
+		
+		session.removeAttribute("challenge");
+		
+		session.setAttribute("user", user);
+		
+		return "redirect:startEdit.do";
+	}
+	
+	@RequestMapping(path="removeChallenge.uch", method = RequestMethod.POST)
+	public String removeChallenge(HttpSession session, int id, RedirectAttributes redir) {
+		User user = (User) session.getAttribute("user");
+		UserChallenge managed = null;
+		
+		for (UserChallenge uc : user.getUserChallenges()) {
+			if(uc.getId() == id) {
+				managed = uc;
+			}
+		}
+		
+		if(managed != null) {
+			ucDao.deleteUserChallenge(managed);
+		}
+		user.removeUserChallenge(managed);
+		session.setAttribute("user", user);
+		
+		
+		return "redirect:startEdit.do";
+	}
+	
+	
 	
 }
