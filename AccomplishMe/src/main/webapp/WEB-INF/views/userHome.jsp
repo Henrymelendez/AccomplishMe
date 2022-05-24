@@ -46,7 +46,7 @@
 	<c:forEach items="${userChallenge.challengeLogs}" var="log" >
 		<c:choose>
 		<c:when test="${! empty log }">
-		<a href="showLog.do?id=${log.id }">${log.entryDate }</a>
+		<a href="viewLogById.clc?id=${log.id }">${log.entryDate }</a>
 		</c:when>
 		</c:choose>
 	</c:forEach> 

@@ -100,5 +100,19 @@ public class ChallengeLogController {
 		return view;
 		
 	}
+	
+	@RequestMapping(path = "viewLogById.clc", method = RequestMethod.GET)
+	public String viewLogById(int id, Model model) {
+		ChallengeLog log = logDao.findById(id);
+		
+		model.addAttribute("log", log );
+		model.addAttribute("page", "Journal");
+		for (Category cat : log.getUserChallenge().getChallenge().getCategories()) {
+			model.addAttribute(cat.getName().toLowerCase(), cat);
+		}
+		
+		
+		return "views/viewLog";
+	}
 
 }

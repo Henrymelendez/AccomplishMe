@@ -213,7 +213,16 @@ public class User {
 	}
 
 	public List<UserChallenge> getUserChallenges() {
-		return new ArrayList<UserChallenge>(userChallenges);
+		List<UserChallenge> actives = new ArrayList<UserChallenge>();
+		
+		if(!userChallenges.isEmpty()) {
+			for (UserChallenge userChallenge : userChallenges) {
+				if(userChallenge.getActive()) {
+					actives.add(userChallenge);
+				}
+			}
+		}
+		return actives;
 	}
 
 	public void setUserChallenges(List<UserChallenge> challenges) {
