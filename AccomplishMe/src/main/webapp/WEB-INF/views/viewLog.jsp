@@ -20,12 +20,26 @@
 <h1>${log.entryDate }</h1>
 </div>
 <div class="row">
-	<div class="col-4">
+<div class="col-lg-8">
+<form action="addlog.clc" method="POST">
+<input type="submit" value="Add new Entry">
+</form>
+</div>
+<div class="col-lg-4">
+<form action="deletelog.clc" method="POST">
+<input name="id" value="${log.id }" hidden="true">
+<input type="submit" value="Delete this Entry">
+</form></div>
+</div>
+<br>
+<hr>
+<div class="row">
+	<div class="col-4 scroll">
 	<c:choose>
 	<c:when test="${! empty workout }">
 	<c:choose>
-	<c:when test="${!empty user.currentUserChallenge.mostRecent.workouts}">
-	<c:forEach var="workout" items="${user.currentUserChallenge.mostRecent.workouts }">
+	<c:when test="${!empty log.workouts}">
+	<c:forEach var="workout" items="${log.workouts }">
 	<h4>${workout.challengeDetail.name}</h4>
 	<ul>
 	<li>Duration: ${ workout.duration}</li>
@@ -47,12 +61,12 @@
 	</c:when>
 	</c:choose>
 	</div>
-	<div class="col-4">
+	<div class="col-4 scroll">
 	<c:choose>
 	<c:when test="${! empty food }">
 	<c:choose>
-	<c:when test="${!empty user.currentUserChallenge.mostRecent.meals}">
-	<c:forEach var="food" items="${user.currentUserChallenge.mostRecent.meals }">
+	<c:when test="${!empty log.meals}">
+	<c:forEach var="food" items="${log.meals }">
 	<h4>${food.challengeDetail.name}</h4>
 	<ul>
 	<li>Servings: ${food.servings}</li>
@@ -74,12 +88,12 @@
 	</c:when>
 	</c:choose>
 	</div>
-	<div class="col-4">
+	<div class="col-4 scroll">
 	<c:choose>
 	<c:when test="${! empty book }">
 	<c:choose>
-	<c:when test="${!empty user.currentUserChallenge.mostRecent.books}">
-	<c:forEach var="book" items="${user.currentUserChallenge.mostRecent.books }">
+	<c:when test="${!empty log.books}">
+	<c:forEach var="book" items="${log.books }">
 	<h4>${book.challengeDetail.name }</h4>
 	<ul>
 	<li>Pages Read: ${book.pagesRead}</li>
@@ -106,35 +120,36 @@
 </c:when>
 <c:otherwise>
 <div class="row">
-<div class="col-4"></div>
-<div class="col-4">
+<div class="col-4 scroll"></div>
+<div class="col-4 scroll">
 <h1>No entries Yet</h1>
 </div>
-<div class="col-4"></div>
+<div class="col-4 scroll"></div>
 </div>
 </c:otherwise>
 </c:choose>
 
+<hr>
+<br>
+
+
 <div class="row">
-<div class="col-4">
-<form action="addlog.clc" method="POST">
-<input type="submit" value="Add new Entry">
-</form>
-
-</div>
-<div class="col-4">
-<form action="editlog.clc" method="POST">
+<div class="col-sm-2">
+<form action="previousLog.clc" method="GET">
 <input name="id" value="${log.id }" hidden="true">
-<input type="submit" value="Edit this Entry">
+<input type="submit" value="Previous">
 </form></div>
-<div class="col-4">
-<form action="deletelog.clc" method="POST">
+<div class="col-8"></div>
+<div class="col-sm-2">
+<form action="nextLog.clc" method="GET">
 <input name="id" value="${log.id }" hidden="true">
-<input type="submit" value="Delete this Entry">
+<input type="submit" value="Next">
 </form></div>
 
-
 </div>
+
+
+
 </main>
 
 

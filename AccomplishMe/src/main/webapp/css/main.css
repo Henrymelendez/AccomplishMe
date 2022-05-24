@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+.scroll{
+	height: 40vh;
+	overflow-y: scroll;
+}
