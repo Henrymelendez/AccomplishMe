@@ -43,13 +43,13 @@
  	<h2>Journal Entries</h2>
  	<c:choose>
  	<c:when test="${! empty userChallenge.challengeLogs}">
-	<c:forEach items="${userChallenge.challengeLogs}" var="log" >
+	<ul><c:forEach items="${userChallenge.challengeLogs}" var="log" >
 		<c:choose>
 		<c:when test="${! empty log }">
-		<a href="viewLogById.clc?id=${log.id }">${log.entryDate }</a>
+		<li><a href="viewLogById.clc?id=${log.id }">${log.entryDate }</a></li>
 		</c:when>
 		</c:choose>
-	</c:forEach> 
+	</c:forEach> </ul>
  	</c:when>
  	</c:choose>
  </div>
