@@ -44,10 +44,14 @@ public class ChallengeLogController {
 	public String addLog(ChallengeLog log, RedirectAttributes redir, HttpSession session) {
 		User user = (User) session.getAttribute("user");
 		UserChallenge uChallenge = user.getCurrentUserChallenge();
-		if (!uChallenge.getMostRecent().getEntryDate().equals(LocalDate.now())) {
+		
+		
+		if (uChallenge.getMostRecent() == null || !uChallenge.getMostRecent().getEntryDate().equals(LocalDate.now())) {
 			log.setEntryDate(LocalDate.now());
 			log.setUserChallenge(user.getCurrentUserChallenge());
+			log.setActive(true);
 			log = logDao.createChallengeLog(log);
+			
 			uChallenge.setMostRecent(log);
 			session.setAttribute("user", user);
 		} else {

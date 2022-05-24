@@ -34,6 +34,10 @@
 	</c:forEach>
 	</c:when>
 	</c:choose>
+	<form action="addChallengeDetail.cld" method="get">
+	<input hidden="true" value="workout" name="name">
+	<input type="submit" value="Add Workout">
+	</form>
 	</c:when>
 	</c:choose>
 	</div>
@@ -46,6 +50,10 @@
 	</c:forEach>
 	</c:when>
 	</c:choose>
+	<form action="addChallengeDetail.cld" method="get">
+	<input hidden="true" value="food" name="name">
+	<input type="submit" value="Add Food">
+	</form>
 	</c:when>
 	</c:choose>
 	</div>
@@ -58,6 +66,10 @@
 	</c:forEach>
 	</c:when>
 	</c:choose>
+	<form action="addChallengeDetail.cld" method="get">
+	<input hidden="true" value="book" name="name">
+	<input type="submit" value="Add Book">
+	</form>
 	</c:when>
 	</c:choose>
 	
@@ -69,7 +81,9 @@
 <div class="col-4"></div>
 <div class="col-4">
 <h1>No entries Yet</h1>
-<a href="addlog.clc"> Add An Entry Right Now</a>
+<form action="addlog.clc" method="POST">
+<input type="submit" value="Add An Entry">
+</form>
 </div>
 <div class="col-4"></div>
 </div>
