@@ -97,7 +97,7 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		User user = (User) session.getAttribute("user");
 		if(user !=null) {
-			mv.addObject("user", user);
+			
 			mv.setViewName("views/accountinfo");
 		}else {
 			mv.setViewName("redirect:home.do");
