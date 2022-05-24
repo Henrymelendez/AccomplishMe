@@ -57,6 +57,12 @@ public class ChallengeLogDAOImpl implements ChallengeLogDAO{
 		em.persist(log);
 		return log;
 	}
+
+	@Override
+	public ChallengeLog findById(int id) {
+		
+		return em.find(ChallengeLog.class, id);
+	}
 	
 	
 }

@@ -10,4 +10,6 @@ public interface ChallengeLogDAO {
 	public boolean deleteChallengeLog(ChallengeLog log);
 	public ChallengeLog addChallengeLogDetails(ChallengeLog log, ChallengeLogDetail... details);
 	public ChallengeLog createAndAddChallengeLogDetails(ChallengeLog log, ChallengeLogDetail... details);
+	public ChallengeLog findById(int id);
+	
 }
