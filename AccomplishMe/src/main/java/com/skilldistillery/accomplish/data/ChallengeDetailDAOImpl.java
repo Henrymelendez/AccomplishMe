@@ -48,4 +48,9 @@ public class ChallengeDetailDAOImpl implements ChallengeDetailDAO {
 		return null;
 	}
 
+	@Override
+	public ChallengeDetail findbyId(int id) {
+		return em.find(ChallengeDetail.class, id);
+	}
+
 }
