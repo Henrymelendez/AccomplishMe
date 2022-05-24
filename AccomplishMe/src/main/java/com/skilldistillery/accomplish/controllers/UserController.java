@@ -165,7 +165,10 @@ public class UserController {
 	@RequestMapping(path="logout.user")
 	public String logout(HttpSession session, RedirectAttributes redir) {
 		session.removeAttribute("user");
-		
+		session.removeAttribute("challenge");
+		session.removeAttribute("workout");
+		session.removeAttribute("book");
+		session.removeAttribute("food");
 		return "redirect:home.do";
 	}
 }

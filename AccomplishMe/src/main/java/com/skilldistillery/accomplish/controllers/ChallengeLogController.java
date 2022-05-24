@@ -1,6 +1,7 @@
 package com.skilldistillery.accomplish.controllers;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -102,17 +103,46 @@ public class ChallengeLogController {
 	}
 	
 	@RequestMapping(path = "viewLogById.clc", method = RequestMethod.GET)
-	public String viewLogById(int id, Model model) {
+	public String viewLogById(int id, Model model, HttpSession session) {
 		ChallengeLog log = logDao.findById(id);
 		
 		model.addAttribute("log", log );
 		model.addAttribute("page", "Journal");
 		for (Category cat : log.getUserChallenge().getChallenge().getCategories()) {
-			model.addAttribute(cat.getName().toLowerCase(), cat);
+			session.setAttribute(cat.getName().toLowerCase(), cat);
 		}
-		
-		
 		return "views/viewLog";
 	}
-
+	
+	@RequestMapping(path = "previousLog.clc", method = RequestMethod.GET)
+		public String previousChallengeLog(HttpSession session, RedirectAttributes redir, int id) {
+		ChallengeLog log = logDao.findById(id);
+		User user = (User) session.getAttribute("user");
+		
+		List<ChallengeLog> challengeLogs = user.getCurrentUserChallenge().getChallengeLogs();
+		for (ChallengeLog challengeLog : challengeLogs) {
+			if(challengeLog.getId() < id) {
+				log = challengeLog;
+				redir.addFlashAttribute("log", log);
+			}
+		}
+		redir.addFlashAttribute("page", "Journal");
+				return "redirect:viewLogRedirect.clc";
+	}
+	@RequestMapping(path = "nextLog.clc", method = RequestMethod.GET)
+	public String nextChallengeLog(HttpSession session, RedirectAttributes redir, int id) {
+	ChallengeLog log = logDao.findById(id);
+	User user = (User) session.getAttribute("user");
+	
+	List<ChallengeLog> challengeLogs = user.getCurrentUserChallenge().getChallengeLogs();
+	for (ChallengeLog challengeLog : challengeLogs) {
+		if(challengeLog.getId() > id) {
+			log = challengeLog;
+			redir.addFlashAttribute("log", log);
+			break;
+		}
+	}
+	redir.addFlashAttribute("page", "Journal");
+			return "redirect:viewLogRedirect.clc";
+}
 }
