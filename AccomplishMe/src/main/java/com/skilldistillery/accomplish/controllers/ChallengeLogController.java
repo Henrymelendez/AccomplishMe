@@ -24,15 +24,21 @@ import com.skilldistillery.accomplish.entities.UserChallenge;
 public class ChallengeLogController {
 	@Autowired
 	ChallengeLogDAO logDao;
+	
 
 	@RequestMapping(path = "viewLog.do", method = RequestMethod.GET)
 	public String viewLog(HttpSession session, Model model) {
 		User user = (User) session.getAttribute("user");
 		ChallengeLog log = null;
+		user.getCurrentUserChallenge().getChallenge().getCategories().size();
 		if (user != null && user.getCurrentUserChallenge() != null
 				&& user.getCurrentUserChallenge().getMostRecent() != null) {
 
 			log = user.getCurrentUserChallenge().getMostRecent();
+			
+			for (Category cat : user.getCurrentUserChallenge().getChallenge().getCategories()) {
+				session.setAttribute(cat.getName().toLowerCase(), cat);
+			}
 		}
 
 		model.addAttribute("log", log);
@@ -59,7 +65,7 @@ public class ChallengeLogController {
 		}
 		redir.addFlashAttribute(log);
 		for (Category cat : uChallenge.getChallenge().getCategories()) {
-			redir.addFlashAttribute(cat.getName().toLowerCase(), cat);
+			session.setAttribute(cat.getName().toLowerCase(), cat);
 		}
 
 		return "redirect:viewLogRedirect.clc";

@@ -12,7 +12,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.accomplish.data.UserDAO;
 import com.skilldistillery.accomplish.entities.User;
-import com.skilldistillery.accomplish.entities.UserChallenge;
 
 @Controller
 public class UserController {

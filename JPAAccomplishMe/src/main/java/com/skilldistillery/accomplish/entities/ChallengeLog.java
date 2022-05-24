@@ -2,7 +2,6 @@ package com.skilldistillery.accomplish.entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table(name = "challenge_log")
@@ -34,6 +36,7 @@ public class ChallengeLog {
 	private UserChallenge userChallenge;
 
 	@OneToMany(mappedBy = "challengeLog")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<ChallengeLogDetail> challengeLogDetails = new ArrayList<>();
 
 	@Transient
