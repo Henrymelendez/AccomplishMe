@@ -48,16 +48,12 @@
 	<form action="removeChallengeDetail.cld" method="POST">
 		<input hidden="true" type="text" name = "id" value="${workout.id}">
 		<input hidden="true" type="text" name = "logId" value="${log.id}">
-		<input type="submit" value="Remove this workout">
+		<input type="submit" value="Remove">
 	</form>
 	</c:forEach>
 	</c:when>
 	</c:choose>
-	<form action="addChallengeDetail.cld" method="get">
-	<input name="id" value="${log.id }" hidden="true">
-	<input hidden="true" value="workout" name="name">
-	<input type="submit" value="Add Workout">
-	</form>
+	
 	</c:when>
 	</c:choose>
 	</div>
@@ -75,16 +71,12 @@
 	<form action="removeChallengeDetail.cld" method="POST">
 		<input hidden="true" type="text" name = "id" value="${food.id}">
 		<input hidden="true" type="text" name = "logId" value="${log.id}">
-		<input type="submit" value="Remove this food">
+		<input type="submit" value="Remove">
 	</form>
 	</c:forEach>
 	</c:when>
 	</c:choose>
-	<form action="addChallengeDetail.cld" method="get">
-	<input name="id" value="${log.id }" hidden="true">
-	<input hidden="true" value="food" name="name">
-	<input type="submit" value="Add Food">
-	</form>
+	
 	</c:when>
 	</c:choose>
 	</div>
@@ -102,16 +94,11 @@
 	<form action="removeChallengeDetail.cld" method="POST">
 		<input hidden="true" type="text" name = "id" value="${book.id}">
 		<input hidden="true" type="text" name = "logId" value="${log.id}">
-		<input type="submit" value="Remove this book">
+		<input type="submit" value="Remove">
 	</form>
 	</c:forEach>
 	</c:when>
 	</c:choose>
-	<form action="addChallengeDetail.cld" method="get">
-	<input name="id" value="${log.id }" hidden="true">
-	<input hidden="true" value="book" name="name">
-	<input type="submit" value="Add Book">
-	</form>
 	</c:when>
 	</c:choose>
 	
@@ -128,6 +115,42 @@
 </div>
 </c:otherwise>
 </c:choose>
+<br>
+<div class="row">
+<div class="col-4">
+<c:choose>
+<c:when test="${! empty workout }"> 
+<form action="addChallengeDetail.cld" method="get">
+	<input name="id" value="${log.id }" hidden="true">
+	<input hidden="true" value="workout" name="name">
+	<input type="submit" value="Add Workout">
+	</form>
+</c:when>
+</c:choose>
+</div>
+<div class="col-4">
+<c:choose>
+<c:when test="${! empty food }"> 
+<form action="addChallengeDetail.cld" method="get">
+	<input name="id" value="${log.id }" hidden="true">
+	<input hidden="true" value="food" name="name">
+	<input type="submit" value="Add Food">
+	</form>
+</c:when>
+</c:choose>
+</div>
+<div class="col-4">
+<c:choose>
+<c:when test="${! empty book }"> 
+<form action="addChallengeDetail.cld" method="get">
+	<input name="id" value="${log.id }" hidden="true">
+	<input hidden="true" value="book" name="name">
+	<input type="submit" value="Add Book">
+	</form>
+</c:when>
+</c:choose>
+</div>
+</div>
 
 <hr>
 <br>
