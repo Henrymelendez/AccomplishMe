@@ -52,7 +52,7 @@
 	<h4>${workout.challengeDetail.name}</h4>
 	<ul>
 	<li>Duration: ${ workout.duration}</li>
-	<li>Calories burned: <fmt:formatNumber type="number" maxFractionDigits = "2"  value = "${((workout.duration/60)*workout.challengeDetail.met)*user.weight }"/></li>
+	<li>Calories burned: <fmt:formatNumber type="number" maxFractionDigits = "2"  value = "${((workout.duration/60)*workout.challengeDetail.met)*(user.weight * 0.453) }"/></li>
 	</ul>
 	<form action="removeChallengeDetail.cld" method="POST">
 		<input hidden="true" type="text" name = "id" value="${workout.id}">
