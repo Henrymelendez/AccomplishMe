@@ -14,6 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class User {
 
@@ -62,7 +65,15 @@ public class User {
 	private List<Challenge> createdChallenges;
 
 	@OneToMany(mappedBy = "creator")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<ChallengeDetail> createdChallengeDetails;
+	
+	@Transient
+	private List<ChallengeDetail> createdWorkouts;
+	@Transient
+	private List<ChallengeDetail> createdFood;
+	@Transient
+	private List<ChallengeDetail> createdBooks;
 
 	public User() {
 		super();
@@ -339,6 +350,63 @@ public class User {
 			}
 		}
 		return challengeLog;
+	}
+	
+	
+	public List<ChallengeDetail> getCreatedWorkouts(){
+		List<ChallengeDetail> cld = new ArrayList<ChallengeDetail>();
+		
+		if(createdChallengeDetails != null && !createdChallengeDetails.isEmpty()) {
+			for (ChallengeDetail detail : createdChallengeDetails) {
+				if(detail.getCategory().getName().equals("workout")) {
+					cld.add(detail);
+				}
+			}
+		}
+		
+		
+		return cld;
+	}
+	
+	public List<ChallengeDetail> getCreatedFood(){
+		List<ChallengeDetail> cld = new ArrayList<ChallengeDetail>();
+		
+		if(createdChallengeDetails != null && !createdChallengeDetails.isEmpty()) {
+			for (ChallengeDetail detail : createdChallengeDetails) {
+				if(detail.getCategory().getName().equals("food")) {
+					cld.add(detail);
+				}
+			}
+		}
+		
+		
+		return cld;
+	}
+	public List<ChallengeDetail> getCreatedBooks(){
+		List<ChallengeDetail> cld = new ArrayList<ChallengeDetail>();
+		
+		if(createdChallengeDetails != null && !createdChallengeDetails.isEmpty()) {
+			for (ChallengeDetail detail : createdChallengeDetails) {
+				if(detail.getCategory().getName().equals("book")) {
+					cld.add(detail);
+				}
+			}
+		}
+		
+		
+		return cld;
+	}
+
+	public void setCreatedWorkouts(List<ChallengeDetail> createdWorkouts) {
+		this.createdWorkouts = createdWorkouts;
+	}
+
+	public void setCreatedFood(List<ChallengeDetail> createdFood) {
+		this.createdFood = createdFood;
+	}
+
+	public void setCreatedBooks(List<ChallengeDetail> createdBooks) {
+		this.createdBooks = createdBooks;
 	}
 	
 	

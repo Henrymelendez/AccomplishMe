@@ -156,8 +156,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="userTasks.user")
-	public String userTasks(HttpSession session) {
-		
+	public String userTasks(HttpSession session, Model model) {
+		model.addAttribute("page", "Anything");
+		User user = (User) session.getAttribute("user");
+		user.getCreatedChallengeDetails().size();
 		
 		return "views/userTasks";
 	}

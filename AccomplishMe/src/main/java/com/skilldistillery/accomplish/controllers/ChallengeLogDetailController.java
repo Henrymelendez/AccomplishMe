@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.skilldistillery.accomplish.data.CategoryDAO;
 import com.skilldistillery.accomplish.data.ChallengeDetailDAO;
 import com.skilldistillery.accomplish.data.ChallengeLogDAO;
 import com.skilldistillery.accomplish.data.ChallengeLogDetailDAO;
+import com.skilldistillery.accomplish.entities.Category;
 import com.skilldistillery.accomplish.entities.ChallengeDetail;
 import com.skilldistillery.accomplish.entities.ChallengeLog;
 import com.skilldistillery.accomplish.entities.ChallengeLogDetail;
@@ -22,7 +24,8 @@ import com.skilldistillery.accomplish.entities.User;
 @Controller
 public class ChallengeLogDetailController {
 	
-	
+	@Autowired
+	CategoryDAO catDao;
 	@Autowired
 	ChallengeLogDetailDAO cldDao;
 	@Autowired
@@ -83,6 +86,26 @@ public class ChallengeLogDetailController {
 		
 		
 		return "redirect:viewLogRedirect.clc";
+	}
+	
+	@RequestMapping(path = "createDetail.cld", method = RequestMethod.POST)
+	public String createDetail(ChallengeDetail detail, HttpSession session, String categoryName, RedirectAttributes redir) {
+		User user = (User) session.getAttribute("user");
+		Category category = catDao.findByName(categoryName);
+		detail.setCategory(category);
+		detail.setCreator(user);
+		cdDao.addDetail(detail);
+		user.addCreatedChallengeDetail(detail);
+		session.setAttribute("user", user);
+		redir.addFlashAttribute("page","Anything");
+		return"redirect:userTasks.user";
+	}
+	
+	@RequestMapping(path = "createDetail.cld", method = RequestMethod.GET)
+	public String startCreateDetail(String pageName) {
+		
+		
+		return "views/create" + pageName;
 	}
 	
 }

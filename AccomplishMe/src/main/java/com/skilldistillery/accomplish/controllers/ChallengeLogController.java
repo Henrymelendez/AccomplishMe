@@ -123,9 +123,10 @@ public class ChallengeLogController {
 		for (ChallengeLog challengeLog : challengeLogs) {
 			if(challengeLog.getId() < id) {
 				log = challengeLog;
-				redir.addFlashAttribute("log", log);
+				
 			}
 		}
+		redir.addFlashAttribute("log", log);
 		redir.addFlashAttribute("page", "Journal");
 				return "redirect:viewLogRedirect.clc";
 	}
@@ -138,10 +139,10 @@ public class ChallengeLogController {
 	for (ChallengeLog challengeLog : challengeLogs) {
 		if(challengeLog.getId() > id) {
 			log = challengeLog;
-			redir.addFlashAttribute("log", log);
 			break;
 		}
 	}
+	redir.addFlashAttribute("log", log);
 	redir.addFlashAttribute("page", "Journal");
 			return "redirect:viewLogRedirect.clc";
 }

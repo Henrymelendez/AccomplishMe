@@ -24,11 +24,16 @@
 <input type="submit" value="Add new Entry">
 </form>
 </div>
+<c:choose>
+<c:when test="${! empty log }">
 <div class="col-lg-4">
 <form action="deletelog.clc" method="POST">
 <input name="id" value="${log.id }" hidden="true">
 <input type="submit" value="Delete this Entry">
-</form></div>
+</form>
+</div>
+</c:when>
+</c:choose>
 </div>
 
 
@@ -158,22 +163,25 @@
 
 <hr>
 <br>
-
+<c:choose>
+<c:when test="${! empty log }">
 
 <div class="row">
 <div class="col-sm-2">
 <form action="previousLog.clc" method="GET">
-<input name="id" value="${log.id }" hidden="true">
+<input name="id" value="${log.id }" hidden="true" >
 <input type="submit" value="Previous">
 </form></div>
 <div class="col-8"></div>
 <div class="col-sm-2">
 <form action="nextLog.clc" method="GET">
-<input name="id" value="${log.id }" hidden="true">
+<input name="id" value="${log.id }" hidden="true" >
 <input type="submit" value="Next">
 </form></div>
 
 </div>
+</c:when>
+</c:choose>
 
 
 
