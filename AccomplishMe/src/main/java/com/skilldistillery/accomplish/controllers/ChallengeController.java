@@ -37,8 +37,10 @@ public class ChallengeController {
 	@RequestMapping(path = "createChallenge.ch", method = RequestMethod.POST)
 	public String createChallenge(Challenge challenge, RedirectAttributes redir, HttpSession session,
 			String... categoryName) {
+		
 		String view = "redirect:loginRedirect.do";
 		User user = (User) session.getAttribute("user");
+		
 		challenge.setActive(true);
 		challenge.setCreator(user);
 		List<Category> categories = new ArrayList<>();
@@ -46,6 +48,7 @@ public class ChallengeController {
 		for (String name : categoryName) {
 			category = catDAO.findByName(name);
 			categories.add(category);
+			
 		}
 		if (!categories.isEmpty()) {
 			for (Category cat : categories) {
@@ -71,14 +74,15 @@ public class ChallengeController {
 	}
 
 	@RequestMapping(path = "deleteChallenge.ch", method = RequestMethod.POST)
-	public String deleteChallenge(int id) {
+	public String deleteChallenge(int id, RedirectAttributes redir) {
 		boolean challenge = challengeDAO.deleteChallenge(id);
 
 		if (challenge == true) {
-			return "Challenge Deleted";
+			return "redirect:findChallenges.ch";
 		} else {
-
-			return "Unsuccessful";
+			redir.addAttribute("message", "Unable to Delete");
+			redir.addAttribute("page", "ME");
+			return "redirect:loginRedirect.do";
 		}
 
 	}
