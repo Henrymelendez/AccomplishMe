@@ -68,7 +68,7 @@
 	    <p><input placeholder="Description..." name="description"></p>
 	    <p><input placeholder="Duration..." name="duration"></p>
 	  	
-	  	<div class="checkboxes">
+	  	<div class="checkboxes" style="display: flex;justify-content: center;text-align: end;">
   				<div class="column">Workout <input type="checkbox" name="categoryName" value="workout"></div>
   				<div class="column"> Diet <input type="checkbox" name="categoryName" value="food"></div>
   				<div class="column">Books<input type="checkbox" name="categoryName" value="book"></div>

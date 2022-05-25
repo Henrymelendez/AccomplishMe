@@ -21,7 +21,7 @@
 <div class="row">
 <div class="col-lg-8">
 <form action="addlog.clc" method="POST">
-<input type="submit" value="Add new Entry">
+<input type="submit" value="Add new Entry"></input>
 </form>
 </div>
 <c:choose>
@@ -29,7 +29,7 @@
 <div class="col-lg-4">
 <form action="deletelog.clc" method="POST">
 <input name="id" value="${log.id }" hidden="true">
-<input type="submit" value="Delete this Entry">
+<input type="submit" value="Delete this Entry"> 
 </form>
 </div>
 </c:when>
