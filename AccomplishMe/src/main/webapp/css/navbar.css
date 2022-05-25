@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 20px;
-  padding-left: 10%;
+  padding-left: 2vw;
   
 }
 
@@ -29,8 +29,12 @@
 .logo {
   color: white;
   font-size: 28px;
-
+  padding-bottom: 0.5vh;
+  margin-right: 0px;
+  padding-left: 10px;
+  display: flex;
 }
+
 
 #onBar ul li {
     list-style-type: none;
@@ -70,13 +74,12 @@
   cursor: pointer;
 }
 
-.logo {
-  padding-bottom: 15px;
-}
+
+
 
 h3 {
   position: relative;
-  right: 0%;
+/*   padding-right: 2vw; */
   font-size: 36px;
   color: white;
 }
@@ -118,6 +121,12 @@ h3 {
 .disablednav{
 	pointer-events: none !important;
 	opacity: 0.8 !important;
+}
+
+#navImage{
+width: 4vw; 
+height: auto; 
+	
 }
 
 
