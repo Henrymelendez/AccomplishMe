@@ -115,4 +115,9 @@ h3 {
 	opacity: 0;
 }
 
+.disablednav{
+	pointer-events: none !important;
+	opacity: 0.8 !important;
+}
+
 

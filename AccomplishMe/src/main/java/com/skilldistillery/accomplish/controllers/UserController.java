@@ -1,5 +1,7 @@
 package com.skilldistillery.accomplish.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -172,5 +174,19 @@ public class UserController {
 		session.removeAttribute("book");
 		session.removeAttribute("food");
 		return "redirect:home.do";
+	}
+	
+	@RequestMapping(path="search.user")
+	public String searchByName(String name, HttpSession session, RedirectAttributes redir, Model model) {
+		List<User> users = userDAO.findByFirstAndLastName(name);
+		if(!users.isEmpty()) {
+			model.addAttribute("users", users);
+		
+		}else {
+			redir.addFlashAttribute("message", "no users with that name.");
+			return "redirect:loginRedirect.do";
+		}
+		return "views/userList";
+		
 	}
 }

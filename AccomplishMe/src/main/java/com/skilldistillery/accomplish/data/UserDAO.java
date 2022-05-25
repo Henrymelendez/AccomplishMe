@@ -1,5 +1,7 @@
 package com.skilldistillery.accomplish.data;
 
+import java.util.List;
+
 import com.skilldistillery.accomplish.entities.User;
 
 public interface UserDAO {
@@ -11,5 +13,6 @@ public interface UserDAO {
 	boolean deleteUser(int userId);
 	User editUser(User user);
 	User editUsernamePassword(User user);
+	List<User> findByFirstAndLastName(String name);
 
 }
