@@ -21,7 +21,7 @@
    	<div class="col-sm-4">
 
 
-      <img src="https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png" alt="#" class="mainImage">
+      <img src="images/yogaguy.png" alt="#" class="mainImage">
     </div>
 
    	<div class="col-sm-4">

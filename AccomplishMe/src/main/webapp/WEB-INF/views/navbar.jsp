@@ -1,17 +1,18 @@
     <div class="hero">
         <nav class="navbar" id="onBar">
-          <span class="logo">
-          <img src="images/Subtract.png" alt="" class="">
+       <span class="logo">
+          <img src="images/yogaguy.png" alt="" id="navImage">
+      
+		 <h3>Accomplish ${page}</h3>
+       </span>
 
-          </span>
-
-          <h3>Accomplish ${page}</h3>
+         
           <ul>
-            <li><a href="home.do" class="fa fa-user fa-2x"></a></li>
-              <li><a href="startEdit.do"class="fa fa-cog fa-2x"></a></li>
-                <li><a href="viewLog.do" class="fa fa-address-book fa-2x"></a></li>
-                  <li><a href="#" class="fa fa-heartbeat fa-2x disablednav"></a></li>
-                    <li><a href="#" class="fa fa-users fa-2x disablednav"></a></li>
+            <li><a href="home.do" title="User Home" class="fa fa-user fa-2x"></a></li>
+              <li><a href="startEdit.do" title="Settings" class="fa fa-cog fa-2x"></a></li>
+                <li><a href="viewLog.do" title="Journal" class="fa fa-address-book fa-2x"></a></li>
+                  <li><a href="#" title="Health(not implemented)" class="fa fa-heartbeat fa-2x disablednav"></a></li>
+                    <li><a href="#" title="Friends(not implemented)" class="fa fa-users fa-2x disablednav"></a></li>
           </ul>
           <div class="searchbar">
 				  <form action="search.user">
@@ -24,7 +25,7 @@
 
  <div class="dropdown">
   <a class="dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-    <img src="images/Intersect.png" alt="" class="userProfile">
+    <img src="images/Intersect.png" alt="" class="userProfile" title="User Options">
   </a>
 
   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-xxl-start" aria-labelledby="dropdownMenuLink">
