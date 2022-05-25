@@ -68,6 +68,9 @@
 	    <p><input name="name" value="${challenge.name }"></p>
 	    <p><input name="description"  value="${challenge.description }"></p>
 	    <p><input name="duration" value="${challenge.duration }"></p>
+	    Workouts <input type="checkbox" name="categoryName" value="workout">
+	    Diet <input type="checkbox" name="categoryName" value="food">
+	    Books<input type="checkbox" name="categoryName" value="book">
 	  </div>
 	    <!-- <div class="tab">
 	    </div> -->
