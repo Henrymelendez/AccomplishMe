@@ -32,8 +32,8 @@ public class ChallengeDetailDAOImpl implements ChallengeDetailDAO {
 
 	@Override
 	public ChallengeDetail addDetail(ChallengeDetail detail) {
-		// TODO Auto-generated method stub
-		return null;
+		em.persist(detail);
+		return detail;
 	}
 
 	@Override
