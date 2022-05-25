@@ -39,6 +39,16 @@ public class ChallengeDetail {
 	@ManyToOne
 	@JoinColumn(name="creator_id")
 	private User creator;
+	
+	private Boolean active;
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
 
 	public ChallengeDetail() {
 		super();

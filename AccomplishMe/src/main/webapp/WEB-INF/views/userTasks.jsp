@@ -74,8 +74,8 @@
 	<td>${t.met }</td>
 	  <td>
 		
-		 <form id="${t.name}_edit" method="get" action="editChallenge.ch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
-	  	<form id="${t.name}_delete" method="post" action="deleteChallenge.ch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
+		 <form id="${t.name}_edit" method="get" action="editDetail.cdc"><input type="text" name="id" value="${t.id}" hidden="true"> </form>
+	  	<form id="${t.name}_delete" method="post" action="deleteDetail.cdc"><input type="text" name="id" value="${t.id}" hidden="true"></form>
 		 
 		
 		

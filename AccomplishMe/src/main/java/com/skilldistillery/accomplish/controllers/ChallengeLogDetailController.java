@@ -88,24 +88,6 @@ public class ChallengeLogDetailController {
 		return "redirect:viewLogRedirect.clc";
 	}
 	
-	@RequestMapping(path = "createDetail.cld", method = RequestMethod.POST)
-	public String createDetail(ChallengeDetail detail, HttpSession session, String categoryName, RedirectAttributes redir) {
-		User user = (User) session.getAttribute("user");
-		Category category = catDao.findByName(categoryName);
-		detail.setCategory(category);
-		detail.setCreator(user);
-		cdDao.addDetail(detail);
-		user.addCreatedChallengeDetail(detail);
-		session.setAttribute("user", user);
-		redir.addFlashAttribute("page","Anything");
-		return"redirect:userTasks.user";
-	}
-	
-	@RequestMapping(path = "createDetail.cld", method = RequestMethod.GET)
-	public String startCreateDetail(String pageName) {
-		
-		
-		return "views/create" + pageName;
-	}
+
 	
 }

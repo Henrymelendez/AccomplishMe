@@ -38,14 +38,26 @@ public class ChallengeDetailDAOImpl implements ChallengeDetailDAO {
 
 	@Override
 	public ChallengeDetail editDetail(ChallengeDetail detail) {
-		// TODO Auto-generated method stub
-		return null;
+		ChallengeDetail managed = em.find(ChallengeDetail.class, detail.getId());
+		
+		if(managed != null) {
+		managed.setCalories(detail.getCalories());
+		managed.setDescription(detail.getDescription());
+		managed.setName(detail.getName());
+		managed.setNumberPages(detail.getNumberPages());
+		managed.setMet(detail.getMet());
+		}
+		
+		return managed;
 	}
 
 	@Override
 	public ChallengeDetail removeDetail(ChallengeDetail detail) {
-		// TODO Auto-generated method stub
-		return null;
+		ChallengeDetail managed = em.find(ChallengeDetail.class, detail.getId());
+		
+		managed.setActive(false);
+		
+		return managed;
 	}
 
 	@Override
