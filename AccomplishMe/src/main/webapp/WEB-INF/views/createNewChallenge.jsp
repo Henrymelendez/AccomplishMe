@@ -67,9 +67,12 @@
 	    <p><input placeholder="Name..." name="name"></p>
 	    <p><input placeholder="Description..." name="description"></p>
 	    <p><input placeholder="Duration..." name="duration"></p>
-	   Workouts <input type="checkbox" name="categoryName" value="workout">
-	    Diet <input type="checkbox" name="categoryName" value="food">
-	    Books<input type="checkbox" name="categoryName" value="book">
+	  	
+	  	<div class="checkboxes">
+  				<div class="column">Workout <input type="checkbox" name="categoryName" value="workout"></div>
+  				<div class="column"> Diet <input type="checkbox" name="categoryName" value="food"></div>
+  				<div class="column">Books<input type="checkbox" name="categoryName" value="book"></div>
+		</div>
 	  </div>
 	    <!-- <div class="tab">
 	    </div> -->
