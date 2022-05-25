@@ -61,7 +61,7 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 		challengeToEdit.setName(challenge.getName());
 		challengeToEdit.setDescription(challenge.getDescription());
 		challengeToEdit.setDuration(challenge.getDuration());
-		
+		challengeToEdit.setCategories(challenge.getCategories());
 		
 		
 		
