@@ -16,7 +16,7 @@
           </ul>
           <div class="searchbar">
 				  <form action="search.user">
-                  <input type="search" class="" name="name">
+                  <input type="search" class="" name="name" placeholder="Search Users...">
                   <button id="navButton" class="btn btn-outline" type="submit">
                       <i class="fa fa-search"></i>
                   </button>

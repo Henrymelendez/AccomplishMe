@@ -26,7 +26,7 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 
 	@Override
 	public Challenge createChallenge(Challenge challenge) {
-		String jpql = "SELECT name FROM Challenge";
+		String jpql = "SELECT c.name FROM Challenge c WHERE c.active = 1";
 		List<String> existingChallenges = em.createQuery(jpql, String.class).getResultList();
 		boolean currentChallenge = true;
 		for (String name : existingChallenges) {

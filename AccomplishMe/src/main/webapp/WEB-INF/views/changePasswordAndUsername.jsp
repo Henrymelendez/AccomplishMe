@@ -16,8 +16,14 @@
 
 <div class="row">
 <div class="col-4">
+<div class="card mb-4 mb-xl-0">
 <img src="${user.userPhoto }"/>
 </div>
+
+</div>
+
+
+
 <div class="col-4">
 <h2>${user.firstName} ${user.lastName}</h2>
 <form action="editUsernamePassword.user">
