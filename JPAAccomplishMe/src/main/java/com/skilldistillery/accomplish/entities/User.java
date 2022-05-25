@@ -265,7 +265,17 @@ public class User {
 	}
 
 	public List<ChallengeDetail> getCreatedChallengeDetails() {
-		return new ArrayList<>(createdChallengeDetails);
+		
+		List<ChallengeDetail> sorted = new ArrayList<>();
+		if(createdChallengeDetails != null && !createdChallengeDetails.isEmpty()) {
+			for (ChallengeDetail cd : createdChallengeDetails) {
+				if(cd.getActive()) {
+					sorted.add(cd);
+				}
+			}
+		}
+		
+		return sorted;
 	}
 
 	public void setCreatedChallengeDetails(List<ChallengeDetail> createdChallengeDetails) {
