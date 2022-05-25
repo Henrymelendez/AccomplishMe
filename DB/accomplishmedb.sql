@@ -269,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `challenge_log` (
   `entry_date` DATE NULL,
   `active` TINYINT NOT NULL DEFAULT 1,
   `user_challenge_id` INT NOT NULL,
-  `visibility_id` INT NULL,
+  `visibility_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_challenge_log_user_challenge1_idx` (`user_challenge_id` ASC),
   INDEX `fk_challenge_log_visibility1_idx` (`visibility_id` ASC),
@@ -378,13 +378,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `accomplishmedb`;
-INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (1, 'admin', 'password', NULL, NULL, NULL, NULL, '2010-03-16', NULL, 1, 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (2, 'Mason', 'founder', 71, 206, 'Mason', 'Zuchinni', '1989-07-13', NULL, 1, 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (3, 'userman', 'userman', 65, 175, 'Guy', 'Manson', '1987-08-15', NULL, 1, 2, 2);
+INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (1, 'admin', 'password', 60, 130, 'admin', 'main', '2010-03-16', 'https://thumbs.dreamstime.com/b/admin-icon-trendy-design-style-isolated-white-background-vector-simple-modern-flat-symbol-web-site-mobile-logo-app-135742404.jpg', 1, 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (2, 'Mason', 'founder', 71, 206, 'Mason', 'Zuchinni', '1989-07-13', 'https://images.squarespace-cdn.com/content/v1/55b254a0e4b0311bbf89923a/1528995836119-QIVKHVAMCNWFWV2Q5PKS/NYC+4-2018+4+1103.JPG?format=1000w', 1, 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (3, 'userman', 'userman', 65, 175, 'Guy', 'Manson', '1987-08-15', 'https://image.shutterstock.com/image-photo/generic-white-cauasian-young-adult-600w-59689636.jpg', 1, 2, 2);
 INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (4, 'Chris', 'founder', 73, 175, 'Chris', 'LightBright', '1988-04-14', NULL, 1, 1, 1);
 INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (5, 'Henry', 'founder', 69, 190, 'Henry', 'Melendor', '1989-11-16', NULL, 1, 2, 1);
 INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (6, 'deleteduser', 'deleteduser', NULL, NULL, NULL, NULL, '2018-02-16', NULL, 0, 3, 3);
-INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (7, 'userdude', 'userdude', 77, 180, 'Dude', 'Manson', '1976-05-17', NULL, 1, 1, 2);
+INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (7, 'userdude', 'userdude', 77, 180, 'Dude', 'Manson', '1976-05-17', 'https://i.ytimg.com/vi/jRn48HxssPI/maxresdefault.jpg', 1, 1, 2);
 
 COMMIT;
 
@@ -394,8 +394,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `accomplishmedb`;
-INSERT INTO `challenge` (`id`, `name`, `description`, `duration_in_days`, `active`, `creator_id`) VALUES (1, '75 hard', '\"2 workouts per day, 1 gallon of water, etc..\"', 75, 1, 1);
-INSERT INTO `challenge` (`id`, `name`, `description`, `duration_in_days`, `active`, `creator_id`) VALUES (2, 'NaNoWriMo', '\"Write 1000 words per day\"', 30, 1, 1);
+INSERT INTO `challenge` (`id`, `name`, `description`, `duration_in_days`, `active`, `creator_id`) VALUES (1, '75 hard', '2 workouts per day, 1 gallon of water, read 10 pages, take a progress photo, stick to a diet', 75, 1, 1);
+INSERT INTO `challenge` (`id`, `name`, `description`, `duration_in_days`, `active`, `creator_id`) VALUES (2, 'NaNoWriMo', 'Write 1000 words per day for 30 days', 30, 1, 1);
+INSERT INTO `challenge` (`id`, `name`, `description`, `duration_in_days`, `active`, `creator_id`) VALUES (3, 'Whole 30', 'Only eat whole foods for 30 days', 30, 1, 1);
+INSERT INTO `challenge` (`id`, `name`, `description`, `duration_in_days`, `active`, `creator_id`) VALUES (4, '75 Soft', 'Workout 4 times a week, stick to a diet 90%, drink half your body wieght in ounces every day, meditate for 5 minutes, read or listen to personal development 10min/per day', 75, 1, 1);
+INSERT INTO `challenge` (`id`, `name`, `description`, `duration_in_days`, `active`, `creator_id`) VALUES (5, '30-Tranformation Diet', 'Eat slowly and mindfully: add at least one minute to mealtimes, don\'t eat while doing another activity, pause between bites (put down the fork, take a sip of water, etc.)', 30, 1, 1);
+INSERT INTO `challenge` (`id`, `name`, `description`, `duration_in_days`, `active`, `creator_id`) VALUES (6, 'Back to The Classics Challenge', 'Read 52 classic novels', 365, 1, 1);
 
 COMMIT;
 
@@ -431,7 +435,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `accomplishmedb`;
-INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (1, 2, 1, '\'no details\'', '2022-05-20', '2022-08-15', 0, 1, 1);
+INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (1, 2, 1, 'LETS GET IT', '2022-05-20', '2022-08-15', 0, 1, 1);
+INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (2, 3, 6, 'Its time to catch up on the classics!', '2022-03-19', '2023-03-19', 0, 1, 1);
+INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (3, 2, 2, 'Write a novel in 30 days', '2020-11-01', '2020-12-01', 1, 0, 1);
+INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (4, 4, 4, 'I need to meditate too!', '2022-05-20', '2022-08-15', 0, 1, 1);
+INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (5, 4, 6, 'read all the classics!', '2021-04-15', '2022-04-15', 1, 0, 1);
+INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (6, 5, 2, 'Write!', '2022-05-01', '2022-06-01', 0, 1, 0);
 
 COMMIT;
 
@@ -473,9 +482,41 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `accomplishmedb`;
-INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (1, 1, 'Swimming (freestyle)', 0, 5.8, 0, '\"Swimming is a low-impact, whole body cardio workout\"', 2, DEFAULT);
-INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (2, 3, 'Carrot', 30, 0, 0, NULL, 2, DEFAULT);
-INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (3, 2, '\'The Secret Life of Cats\'', NULL, NULL, 290, '\"A book about cats\"', 2, DEFAULT);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (1, 1, 'Swimming (freestyle, light effort)', 0, 5.8, 0, 'low-impact, effort is light, no struggle with breath', 2, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (2, 2, 'Carrot', 30, 0, 0, '30 gram serving of carrots', 2, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (3, 3, '\'The Secret Life of Cats\'', NULL, NULL, 290, 'A book about cats', 2, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (4, 1, 'Walking (brisk pace)', NULL, 4.5, NULL, 'Brisk walking pace, can speak in full sentences, with pauses for breath', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (5, 1, 'Walking (casual pace)', NULL, 3, NULL, 'Casual walking, conversation is easy', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (6, 1, 'Running (moderate pace)', NULL, 11, NULL, 'Moderate pace, able to speak in phrases, but not full sentences', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (7, 1, 'Running (casual pace)', NULL, 9, NULL, 'Casual pace, able to speak in full sentences', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (8, 1, 'Running (fast pace)', NULL, 16, NULL, 'Fast, unable to speak in full sentences or phrases consistently', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (9, 1, 'Swimming (freestyle, vigorous effort)', NULL, 9.8, NULL, 'low-impact, effort is vigorous, work to maintain breath', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (10, 1, 'Swimming (freestyle, medium effort)', NULL, 8.3, NULL, 'low-impact, effort is consistent, breath is steady', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (11, 1, 'Treading water', NULL, 3.5, NULL, 'low-impact, maintaining neutral boyancy through treading water', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (12, 1, 'Archery', NULL, 4.3, NULL, 'Target Practice', 4, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (13, 1, 'Basketball (game)', NULL, 8, NULL, 'Shootin\' hoops with the crew', 4, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (14, 1, 'Boxing (sparring)', NULL, 7.8, NULL, 'practice at the gym', 4, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (15, 1, 'Fencing', NULL, 6, NULL, 'fencing class', 5, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (16, 1, 'Football', NULL, 8, NULL, 'flag footbal', 5, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (17, 1, 'Walking the dog', NULL, 3, NULL, 'walking the dog', 5, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (18, 2, 'Peanuts', 161, NULL, NULL, '1oz serving of peanuts', 2, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (19, 2, 'Bacon', 43, NULL, NULL, '1 slice of bacon', 2, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (20, 2, 'Egg', 90, NULL, NULL, '1 large, fried egg', 2, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (21, 2, 'Avocado', 160, NULL, NULL, '100 gram serving of avocado', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (22, 2, 'Toast, wheat', 75, NULL, NULL, '1 slice', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (23, 2, 'Banana', 105, NULL, NULL, '1 medium', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (24, 2, 'Dinty Moore Beef Stew', 240, NULL, NULL, '8-oz serving', 4, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (25, 2, 'Chicken Breast', 239, NULL, NULL, '100 gram serving', 4, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (26, 2, 'Steak', 271, NULL, NULL, '100 gram serving', 4, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (27, 2, 'Chicken Tacos', 156, NULL, NULL, '1 Taco', 2, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (28, 2, 'Salmon', 177, NULL, NULL, '3 oz (80 grams)', 5, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (29, 2, 'Wild Rice', 83, NULL, NULL, '1/2 cup (cooked)', 5, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (30, 2, 'Broccoli', 45, NULL, NULL, '1 medium stalks', 5, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (31, 3, 'Spellmonger', NULL, NULL, 626, 'Minalin the spellmonger just wanted a simple life, now he\'s weilding an illegal magic rock in the midst of a goblin war.', 2, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (32, 3, 'Warmage', NULL, NULL, 747, 'Minalin, having survived the goblin invasion has to convince a reluctant duchy to go to war', 2, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (33, 3, 'Magelord', NULL, NULL, 749, 'The duchy is still intact, and Minalin is the reason why, so he\'s now a magelord and has to bring his newly awarded estate into the new magical era.', 2, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (34, 3, 'The Art of War', NULL, NULL, 256, 'Sun Tzu\'s art of war, a classic', 5, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (35, 3, 'Mission Earth', NULL, NULL, 3992, 'L. Ron Hubbard', 4, 1);
 
 COMMIT;
 
@@ -486,6 +527,10 @@ COMMIT;
 START TRANSACTION;
 USE `accomplishmedb`;
 INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (1, '2022-05-20', 1, 1, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (2, '2022-05-21', 1, 1, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (3, '2022-05-22', 1, 1, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (4, '2022-05-23', 1, 1, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (5, '2022-05-24', 1, 1, 1);
 
 COMMIT;
 
@@ -509,6 +554,12 @@ INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (1, 1);
 INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 1);
 INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (3, 1);
 INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 2);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (3, 3);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (1, 4);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 4);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (3, 4);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (3, 5);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 6);
 
 COMMIT;
 
