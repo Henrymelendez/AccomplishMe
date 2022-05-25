@@ -10,12 +10,12 @@
             <li><a href="home.do" class="fa fa-user fa-2x"></a></li>
               <li><a href="startEdit.do"class="fa fa-cog fa-2x"></a></li>
                 <li><a href="viewLog.do" class="fa fa-address-book fa-2x"></a></li>
-                  <li><a href="viewHealth.do" class="fa fa-heartbeat fa-2x"></a></li>
-                    <li><a href="viewFriends.do" class="fa fa-users fa-2x"></a></li>
+                  <li><a href="#" class="fa fa-heartbeat fa-2x disablednav"></a></li>
+                    <li><a href="#" class="fa fa-users fa-2x disablednav"></a></li>
           </ul>
           <div class="searchbar">
-				  <form action="search.do">
-                  <input type="search" class="" id="inputNav">
+				  <form action="search.user">
+                  <input type="search" class="" name="name">
                   <button id="navButton" class="btn btn-outline" type="submit">
                       <i class="fa fa-search"></i>
                   </button>

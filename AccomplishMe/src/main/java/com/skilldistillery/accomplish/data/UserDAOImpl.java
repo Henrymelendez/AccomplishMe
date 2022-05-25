@@ -1,5 +1,6 @@
 package com.skilldistillery.accomplish.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -38,6 +39,20 @@ public class UserDAOImpl implements UserDAO {
 		}
 
 		return user;
+	}
+	
+	@Override
+	public List<User> findByFirstAndLastName(String name) {
+		List<User> users = new ArrayList<>();
+		String jpql = "SELECT u FROM User u WHERE u.firstName LIKE :name OR u.lastName LIKE :name AND u.active = 1";
+		try {
+			users = em.createQuery(jpql, User.class).setParameter("name", name).getResultList();
+			
+		} catch (NoResultException e){
+			
+		}
+		
+		return users;
 	}
 
 	@Override
