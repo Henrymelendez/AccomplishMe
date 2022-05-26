@@ -61,13 +61,12 @@
   border: none;
   padding-top: 12px;
   margin:2px;
-  border-radius: 50% ;
+  border-radius: 30px;
   transition: .4s;
   padding-bottom: 20px;
   position: relative;
   padding-left: 3vw;
   padding-right: 3vw;
-  height: 6vh;
 }
 
 .userProfile:hover {
@@ -144,6 +143,5 @@ height: auto;
 .navSearch:focus, input:focus::placeholder {
   color: rgb(238, 86, 34);
 }
-
 
 
