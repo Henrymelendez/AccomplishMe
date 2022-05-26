@@ -68,8 +68,8 @@ input, button, .group i, p, a {
 
 button {
   padding: 12px;
-  background-image:  linear-gradient(to right, #925252, #925252);
-  margin-bottom: 20px;
+  background-color:  #525073;
+  margin: 3px;
   cursor: pointer;
 
 }
@@ -85,7 +85,7 @@ button i {
 
 
 i.fa.fa-empire, a {
-  color: #ff1464;
+  color: #D80032;
 }
 
 
@@ -100,7 +100,7 @@ h2 {
 }
 
 input:focus, input:focus::placeholder, input:focus+i{
-  color: #ff1464;
+  color: #D80032;
 }
 
 input:focus, button:focus {
@@ -139,12 +139,10 @@ body:after{
   
 }
 h1 {
-
   font-size: 120px;;
-  font-family: 'EB Garamond', serif;
-  color:  #607281;
+  font-family: 'Aqua Grotesque', serif;
+  color:  #525073;
   position: relative;
-
 
 }
 

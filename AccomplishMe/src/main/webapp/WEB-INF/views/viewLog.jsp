@@ -139,7 +139,7 @@
 <form action="addChallengeDetail.cld" method="get">
 	<input name="id" value="${log.id }" hidden="true">
 	<input hidden="true" value="workout" name="name">
-	<button type="submit" title="Add a workout entry to the Journal" value="Add Workout" class="btn btn-success btn-circle"><i class="btn btn-success btn-circle"></i></button>
+	<button type="submit" title="Add a workout entry to the Journal" value="Add Workout" class="btn btn-success btn-circle"><i class="fa fa-plus-circle"></i></button>
 	</form>
 </c:when>
 </c:choose>
@@ -150,7 +150,7 @@
 <form action="addChallengeDetail.cld" method="get">
 	<input name="id" value="${log.id }" hidden="true">
 	<input hidden="true" value="food" name="name">
-	<button type="submit" title="Add a meal entry to the Journal" value="Add Food" class="btn btn-success btn-circle"><i class="btn btn-success btn-circle"></i></button>
+	<button type="submit" title="Add a meal entry to the Journal" value="Add Food" class="btn btn-success btn-circle"><i class="fa fa-plus-circle"></i></button>
 	</form>
 </c:when>
 </c:choose>

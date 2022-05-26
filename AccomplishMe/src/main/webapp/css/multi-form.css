@@ -37,7 +37,7 @@ input {
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: #3185fc;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -71,7 +71,7 @@ button:hover {
 
 .step.active {
   opacity: 1;
-  background-color: #69c769;
+  background-color: #3185fc;
 }
 
 .step.finish {
@@ -84,4 +84,8 @@ button:hover {
 
 .checkboxes{
 	display: inline-block;
+}
+
+.cancel{
+	background-color: #D80032;
 }

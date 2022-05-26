@@ -29,15 +29,17 @@
     <form action="login.do" method="post">
     <div class="login">
 
-      <i class="fa fa-empire" aria-hidden="true"></i>
+      <i class="fa fa-door-open" aria-hidden="true"></i>
         <h3>Login</h3>
       <div class="group"><input type="text" name="username" placeholder="Username">
         <i class="fa fa-user"></i></div>
 
         <div class="group"><input type="password" name="password" placeholder="password"><i
           class="fa fa-lock"></i></div>
-          <input type="submit" name="button" value="Login" formaction="login.do"/>
-          <input type="submit" name="button" value="Register" formaction="createUser.do" formmethod="get"/>
+          <button type="submit" name="button" value="Login" formaction="login.do">
+          Login </button>
+          <button type="submit" name="button" value="Register" formaction="createUser.do" formmethod="get"> 
+          Register </button>
 
 
     </div>
