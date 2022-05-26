@@ -189,4 +189,18 @@ public class UserController {
 		return "views/userList";
 		
 	}
+	
+	@RequestMapping(path="addPhoto.user", method = RequestMethod.POST)
+	public String addPhoto(String photoURL, HttpSession session, RedirectAttributes redir) {
+		User user = (User) session.getAttribute("user");
+		user.setUserPhoto(photoURL);
+		userDAO.addPhoto(user);
+		
+		session.setAttribute("user", user);
+		redir.addFlashAttribute("page", user.getFirstName());
+		
+		
+		return "redirect:startEdit.do";
+		
+	}
 }

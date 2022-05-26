@@ -18,19 +18,12 @@
 </div>
 
 
-
-
-<div class="row">
-<form id="createChallenge" method="get" action="createChallenge.ch">
-<input type="submit" value="Create Custom Challenge" class="btn btn-primary">
-</form>
-</div>
 <br><br>
 <div class="container">
 	<input id="myInput" type="text" placeholder="Search...">
 	<br><br>
 	
-<div class="row">
+<div class="row scroll-xl">
 	<table class="table table-hover table striped">
 	<thead>
 	<tr>
