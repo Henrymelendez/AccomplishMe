@@ -11,4 +11,5 @@ public interface UserChallengeDAO {
 	public UserChallenge createUserChallengeNewChallenge(UserChallenge uChallenge, Challenge challenge);
 	public UserChallenge completeUserChallenge(UserChallenge uChallenge);
 	public UserChallenge abandonUserChallenge(UserChallenge uChallenge);
+	public UserChallenge findById(int id);
 }

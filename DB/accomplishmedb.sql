@@ -453,8 +453,8 @@ COMMIT;
 START TRANSACTION;
 USE `accomplishmedb`;
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (1, 'workout', NULL);
-INSERT INTO `category` (`id`, `name`, `description`) VALUES (2, 'book', NULL);
-INSERT INTO `category` (`id`, `name`, `description`) VALUES (3, 'food', NULL);
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (2, 'food', NULL);
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (3, 'book', NULL);
 
 COMMIT;
 
@@ -572,13 +572,13 @@ USE `accomplishmedb`;
 INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (1, 1);
 INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 1);
 INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (3, 1);
-INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 2);
-INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (3, 3);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (3, 2);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 3);
 INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (1, 4);
 INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 4);
 INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (3, 4);
-INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (3, 5);
-INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 6);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (2, 5);
+INSERT INTO `challenge_category` (`category_id`, `challenge_id`) VALUES (3, 6);
 
 COMMIT;
 

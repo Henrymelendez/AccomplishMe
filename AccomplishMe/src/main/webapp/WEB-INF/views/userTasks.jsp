@@ -16,24 +16,50 @@
  </style>
 </head>
 <body>
-<main>
+<main class="container-fluid">
 <div class="row">
  <%@ include file="navbar.jsp" %>
 <!-- end row  -->
 </div>
+<br>
 <div class="row">
 
-<div class="col-4">
+<div class="col-4 rightHeading">
 <form action="findChallenges.ch">
-<input type="submit" value="Select a Challenge">
+<button type="submit" Title="Select a Challenge" class="btn btn-primary">New Challenge</button>
 </form>
 </div>
 <br>
 <div class="col-4"></div>
-<div class="col-4"></div>
 
-<div class="row">
 <div class="col-4">
+<c:if test="${! empty user.currentUserChallenge }">
+<form action="completeChallenge.uch" method="post">
+<input type="text" name="id" value="${user.currentUserChallenge.id}" hidden="true">
+<button type="submit" Title="Complete Current challenge" class="btn btn-primary">Complete Current Challenge</button>
+</form>
+<br>
+<form action="abandonChallenge.uch" method="post">
+<input type="text" name="id" value="${user.currentUserChallenge.id}" hidden="true">
+<button type="submit" Title="Complete Current challenge" class="btn btn-primary">Abandon Current Challenge</button>
+</form>
+</c:if>
+<c:if test="${! empty message}">
+<h4 class="message">${message}</h4>
+</c:if>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="row centerHeading">
+<h2> User Created Details</h2>
+</div>
+<br>
+<hr>
+<br>
+<div class="row">
+<div class="col-4 rightHeading">
 <form action="createDetail.cld" method="GET">
 <button type="submit" title="Create a new Workout" class="btn btn-success">
 Create A Workout
@@ -43,7 +69,7 @@ Create A Workout
 </form>
 </div>
 
-<div class="col-4">
+<div class="col-4 centerHeading">
 <form action="createDetail.cld" method="GET">
 <button type="submit" title="Create a new Food item" class="btn btn-success">
 Create A Food
@@ -67,7 +93,9 @@ Create A Book
 
 
 <div class="row">
-
+<br>
+<hr>
+<br>
 
 <div class="col-4 scroll">
 	<table class="table table-hover table striped">

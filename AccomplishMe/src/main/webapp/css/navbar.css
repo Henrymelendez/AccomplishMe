@@ -77,7 +77,7 @@
 
 
 
-h3 {
+.navHeader {
   position: relative;
 /*   padding-right: 2vw; */
   font-size: 36px;
@@ -97,7 +97,7 @@ h3 {
   margin: 3px;
 }
 
-.btn {
+#navButton {
   padding-left: 0;
   color: grey;
 }
@@ -131,6 +131,17 @@ height: auto;
 
 .checkboxes{
 	display: inline-block;
+}
+
+.navSearch{
+  width: 10vw; 
+  border: none;
+  border-radius: 10px;
+  padding: 1vh;
+}
+
+.navSearch:focus, input:focus::placeholder {
+  color: rgb(238, 86, 34);
 }
 
 

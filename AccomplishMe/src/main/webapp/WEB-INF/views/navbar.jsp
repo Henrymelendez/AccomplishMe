@@ -3,7 +3,7 @@
        <span class="logo">
           <img src="images/yogaguy.png" alt="" id="navImage">
       
-		 <h3>Accomplish ${page}</h3>
+		 <h3 class="NavHeader">Accomplish ${page}</h3>
        </span>
 
          
@@ -16,7 +16,7 @@
           </ul>
           <div class="searchbar">
 				  <form action="search.user">
-                  <input type="search" class="" name="name" placeholder="Search Users...">
+                  <input type="search" class="navSearch" name="name" placeholder="Search Users...">
                   <button id="navButton" class="btn btn-outline" type="submit">
                       <i class="fa fa-search"></i>
                   </button>
