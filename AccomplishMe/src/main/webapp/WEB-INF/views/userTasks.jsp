@@ -28,25 +28,37 @@
 <input type="submit" value="Select a Challenge">
 </form>
 </div>
+<br>
 <div class="col-4"></div>
 <div class="col-4"></div>
 
 <div class="row">
 <div class="col-4">
 <form action="createDetail.cld" method="GET">
-<input type="submit" value="Create A Workout ">
+<button type="submit" title="Create a new Workout" class="btn btn-success">
+Create A Workout
+<i class="fa-solid fa-person-running"></i>
+</button>
 <input hidden="true" value="Workout" name="pageName">
 </form>
 </div>
+
 <div class="col-4">
 <form action="createDetail.cld" method="GET">
-<input type="submit" value="Create A Food ">
+<button type="submit" title="Create a new Food item" class="btn btn-success">
+Create A Food
+<i class="fa-solid fa-carrot"></i>
+</button>
 <input hidden="true" value="Food" name="pageName">
 </form>
 </div>
+
 <div class="col-4">
 <form action="createDetail.cld" method="GET">
-<input type="submit" value="Create A Book ">
+<button type="submit" title="Create a new Book" class="btn btn-success">
+Create A Book
+<i class="fa-solid fa-book-open"></i>
+</button>
 <input hidden="true" value="Book" name="pageName">
 </form>
 </div>
@@ -79,9 +91,9 @@
 		 
 		
 		
-		  <a href="#" class="btn btn-warning" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
+		  <a href="#" class="btn btn-warning" title="Edit this Workout" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
 		 
-		 | <a class="btn btn-danger" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> 
+		 | <a class="btn btn-danger" title="Remove this Workout" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> 
 		
 	</td>
 	</tr>
@@ -113,9 +125,9 @@
 		 
 		
 		
-		  <a href="#" class="btn btn-warning" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
+		  <a href="#" class="btn btn-warning" title="Edit this food item" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
 		 
-		 | <a class="btn btn-danger" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> 
+		 | <a class="btn btn-danger" title="Remove this Food item" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> 
 	
 	</td>
 	</tr>
@@ -148,9 +160,9 @@
 	  	<form id="${t.name}_delete" method="post" action="deleteChallenge.ch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
 		 
 		 
-		  <a href="#" class="btn btn-warning" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
+		  <a href="#" class="btn btn-warning" title="Edit this Book" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
 		 
-		 | <a class="btn btn-danger" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> 
+		 | <a class="btn btn-danger" title="Remove this Book" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> 
 		
 	</td>
 	</tr>
