@@ -64,7 +64,7 @@
 	<form action="removeChallengeDetail.cld" method="POST">
 		<input hidden="true" type="text" name = "id" value="${workout.id}">
 		<input hidden="true" type="text" name = "logId" value="${log.id}">
-		<input type="submit" title="Remove this workout entry from the Journal" value="Remove">
+		<button type="submit" title="Remove this workout entry from the Journal" value="Remove" class="btn btn-danger"><i class="fa-solid fa-circle-minus"></i></button>
 	</form>
 	</c:forEach>
 	</c:when>
@@ -87,7 +87,7 @@
 	<form action="removeChallengeDetail.cld" method="POST">
 		<input hidden="true" type="text" name = "id" value="${food.id}">
 		<input hidden="true" type="text" name = "logId" value="${log.id}">
-		<input type="submit" title="Remove this meal entry from the Journal" value="Remove">
+		<button type="submit" title="Remove this meal entry from the Journal" value="Remove" class="btn btn-danger"><i class="fa-solid fa-circle-minus"></i></button>
 	</form>
 	</c:forEach>
 	</c:when>
@@ -110,7 +110,7 @@
 	<form action="removeChallengeDetail.cld" method="POST">
 		<input hidden="true" type="text" name = "id" value="${book.id}">
 		<input hidden="true" type="text" name = "logId" value="${log.id}">
-		<input type="submit" title="Remove this book entry from the Journal" value="Remove">
+		<button type="submit" title="Remove this book entry from the Journal" value="Remove" class="btn btn-danger"><i class="fa-solid fa-circle-minus"></i></button>
 	</form>
 	</c:forEach>
 	</c:when>
@@ -139,7 +139,7 @@
 <form action="addChallengeDetail.cld" method="get">
 	<input name="id" value="${log.id }" hidden="true">
 	<input hidden="true" value="workout" name="name">
-	<button type="submit" title="Add a workout entry to the Journal" value="Add Workout" class="btn btn-success btn-circle"><i class="fa fa-plus-circle"></i></button>
+	<button type="submit" title="Add a workout entry to the Journal" value="Add Workout" class="btn btn-success btn-circle"><i class="fa-solid fa-person-running"></i></button>
 	</form>
 </c:when>
 </c:choose>
@@ -150,7 +150,7 @@
 <form action="addChallengeDetail.cld" method="get">
 	<input name="id" value="${log.id }" hidden="true">
 	<input hidden="true" value="food" name="name">
-	<button type="submit" title="Add a meal entry to the Journal" value="Add Food" class="btn btn-success btn-circle"><i class="fa fa-plus-circle"></i></button>
+	<button type="submit" title="Add a meal entry to the Journal" value="Add Food" class="btn btn-success btn-circle"><i class="fa-solid fa-carrot"></i></button>
 	</form>
 </c:when>
 </c:choose>
@@ -161,7 +161,7 @@
 <form action="addChallengeDetail.cld" method="get">
 	<input name="id" value="${log.id }" hidden="true">
 	<input hidden="true" value="book" name="name">
-	<button type="submit" title="Add a book entry to the Journal" class="btn btn-success btn-circle"><i class="fa fa-plus-circle"></i></button>
+	<button type="submit" title="Add a book entry to the Journal" class="btn btn-success btn-circle"><i class="fa-solid fa-book-open"></i></button>
 	</form>
 </c:when>
 </c:choose>
@@ -177,13 +177,13 @@
 <div class="col-sm-2">
 <form action="previousLog.clc" method="GET">
 <input name="id" value="${log.id }" hidden="true" >
-<input type="submit" title="View previous journal entry" value="Previous">
+<input type="submit" title="View previous journal entry" value="Previous" class="btn btn-primary">
 </form></div>
 <div class="col-8"></div>
 <div class="col-sm-2">
 <form action="nextLog.clc" method="GET">
 <input name="id" value="${log.id }" hidden="true" >
-<input type="submit" title="View next journal entry" value="Next">
+<input type="submit" title="View next journal entry" value="Next" class="btn btn-primary">
 </form></div>
 
 </div>
