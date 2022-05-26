@@ -1,7 +1,13 @@
+<h1 align="center">
+<a name="logo">
 <img src="https://github.com/Henrymelendez/MidtermProject/blob/main/AccomplishMe/src/main/webapp/images/yogaguy.png?raw=true" alt="Yoga Man" width="100" style:"max-width 100%">
+</a>
+<br>
 
 # AccomplishME
 Mid-term Team Project for Skill Distillery
+
+</h1>
 
 # Table of Contents
 * <a href="#team-members"> Team Members</a>
