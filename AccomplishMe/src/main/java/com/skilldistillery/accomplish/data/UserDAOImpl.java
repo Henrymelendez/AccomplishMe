@@ -110,4 +110,13 @@ public class UserDAOImpl implements UserDAO {
 		
 		return userToEdit;
 	}
+
+	@Override
+	public User addPhoto(User user) {
+		User managed = em.find(User.class, user.getId());
+		
+		managed.setUserPhoto(user.getUserPhoto());
+		
+		return managed;
+	}
 }

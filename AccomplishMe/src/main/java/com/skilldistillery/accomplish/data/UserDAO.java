@@ -14,5 +14,6 @@ public interface UserDAO {
 	User editUser(User user);
 	User editUsernamePassword(User user);
 	List<User> findByFirstAndLastName(String name);
+	User addPhoto(User user);
 
 }
