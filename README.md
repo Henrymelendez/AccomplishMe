@@ -1,12 +1,15 @@
 <h1 align="center">
 <a name="logo">
-<img src="https://github.com/Henrymelendez/MidtermProject/blob/main/AccomplishMe/src/main/webapp/images/yogaguy.png?raw=true" alt="Yoga Man" width="100" style:"max-width 100%">
+<img src="https://github.com/Henrymelendez/MidtermProject/blob/main/AccomplishMe/src/main/webapp/images/yogaguy.png?raw=true" alt="Yoga Man" width="160" style:"max-width 100%">
 </a>
 <br>
+</h1>
 
-# AccomplishME
+<h1 align="center" style="font-size: 50px;">
+AccomplishME
+</h1>
+<h1 align="center">
 Mid-term Team Project for Skill Distillery
-
 </h1>
 
 # Table of Contents
@@ -53,7 +56,12 @@ Placeholder for description.
 
 Accomplish Me Database Schema Diagram
 
-<img src="https://github.com/Henrymelendez/MidtermProject/blob/main/DB/Rev2.png?raw=true" alt="Yoga Man" width="1000" style:"max-width 100%" class="center">
+<h1 align="center">
+<a name="Database Schema">
+<img src="https://github.com/Henrymelendez/MidtermProject/blob/main/DB/Rev2.png?raw=true" alt="Database Schema Diagram" width="1000" style:"max-width 100%">
+</a>
+<br>
+</h1>
 
 <h2 dir="auto">
 <a id="team-members" class="anchor" aria-hidden="true" href="#technologies-used"></a>
