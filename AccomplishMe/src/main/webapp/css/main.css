@@ -52,4 +52,18 @@ h1, h2, h3, h4, h5, h6{
 	color: rgb(238, 86, 34);
 }
 
+.goalHeading{
+	font-weight: bold;
+}
+
+textarea {
+	width: 70%;
+	height: 20vh;
+}
+
+.btn-long{
+	width: 60%;
+	
+}
+
 

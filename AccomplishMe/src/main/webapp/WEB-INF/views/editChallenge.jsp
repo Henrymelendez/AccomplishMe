@@ -59,7 +59,7 @@
 	</script>
 </head>
 <body>
-	<h1 style="margin-top:50px; color: white;">Edit Challenge</h1>
+	<h1 style="margin-top:50px; color: #141206;">Edit Challenge</h1>
 	<form id="myForm" action="editChallenge.ch" method="POST">
 	  <h1>Challenge Form</h1>
 	  <!-- One "tab" for each step in the form: -->
@@ -83,6 +83,7 @@
 			<button type="button" class="submit">Submit</button>
 	    </div>
 	  </div>
+	  <a href="findChallenges.ch"><button  type="button" class="cancel">Cancel</button></a>
 	  <!-- Circles which indicates the steps of the form: -->
 	  <div style="text-align:center;margin-top:40px;">
 	    <span class="step">1</span>
