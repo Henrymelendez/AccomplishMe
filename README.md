@@ -8,9 +8,9 @@
 <h1 align="center" style="font-size: 50px;">
 AccomplishME
 </h1>
-<h1 align="center">
+<h3 align="center">
 Mid-term Team Project for Skill Distillery
-</h1>
+</h3>
 
 # Table of Contents
 * <a href="#team-members"> Team Members</a>
