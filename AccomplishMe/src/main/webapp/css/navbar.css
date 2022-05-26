@@ -11,7 +11,7 @@
 }
 
 #onBar {
-  background-color: #925252;
+  background: linear-gradient(175deg, rgb(82, 81, 116), rgb(247, 247, 242));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -108,7 +108,7 @@ h3 {
 }
 
 .dropdown-menu{
-	background-color: #925252 !important;
+	background: linear-gradient(175deg, rgb(82, 81, 116), rgb(247, 247, 242));
 	align-items: left;
 	max-width: auto;
 

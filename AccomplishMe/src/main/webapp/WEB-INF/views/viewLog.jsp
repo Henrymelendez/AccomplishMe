@@ -21,7 +21,10 @@
 <div class="row">
 <div class="col-lg-8">
 <form action="addlog.clc" method="POST">
-<input type="submit" value="Add new Entry"></input>
+<button type="submit" title="Add a new entry to the Journal" class="btn btn-success">
+Add new Entry
+<i class="fa-solid fa-calendar-plus"></i>
+</button>
 </form>
 </div>
 <c:choose>
@@ -29,7 +32,10 @@
 <div class="col-lg-4">
 <form action="deletelog.clc" method="POST">
 <input name="id" value="${log.id }" hidden="true">
-<input type="submit" value="Delete this Entry"> 
+<button type="submit" title="Delete this entry from the Journal" class="btn btn-danger"> 
+Delete this Entry
+<i class="fa-solid fa-trash-can"></i>
+</button>
 </form>
 </div>
 </c:when>
@@ -57,7 +63,7 @@
 	<form action="removeChallengeDetail.cld" method="POST">
 		<input hidden="true" type="text" name = "id" value="${workout.id}">
 		<input hidden="true" type="text" name = "logId" value="${log.id}">
-		<input type="submit" value="Remove">
+		<input type="submit" title="Remove this workout entry from the Journal" value="Remove">
 	</form>
 	</c:forEach>
 	</c:when>
@@ -80,7 +86,7 @@
 	<form action="removeChallengeDetail.cld" method="POST">
 		<input hidden="true" type="text" name = "id" value="${food.id}">
 		<input hidden="true" type="text" name = "logId" value="${log.id}">
-		<input type="submit" value="Remove">
+		<input type="submit" title="Remove this meal entry from the Journal" value="Remove">
 	</form>
 	</c:forEach>
 	</c:when>
@@ -103,7 +109,7 @@
 	<form action="removeChallengeDetail.cld" method="POST">
 		<input hidden="true" type="text" name = "id" value="${book.id}">
 		<input hidden="true" type="text" name = "logId" value="${log.id}">
-		<input type="submit" value="Remove">
+		<input type="submit" title="Remove this book entry from the Journal" value="Remove">
 	</form>
 	</c:forEach>
 	</c:when>
@@ -132,7 +138,7 @@
 <form action="addChallengeDetail.cld" method="get">
 	<input name="id" value="${log.id }" hidden="true">
 	<input hidden="true" value="workout" name="name">
-	<input type="submit" value="Add Workout">
+	<input type="submit" title="Add a workout entry to the Journal" value="Add Workout">
 	</form>
 </c:when>
 </c:choose>
@@ -143,7 +149,7 @@
 <form action="addChallengeDetail.cld" method="get">
 	<input name="id" value="${log.id }" hidden="true">
 	<input hidden="true" value="food" name="name">
-	<input type="submit" value="Add Food">
+	<input type="submit" title="Add a meal entry to the Journal" value="Add Food">
 	</form>
 </c:when>
 </c:choose>
@@ -154,7 +160,7 @@
 <form action="addChallengeDetail.cld" method="get">
 	<input name="id" value="${log.id }" hidden="true">
 	<input hidden="true" value="book" name="name">
-	<input type="submit" value="Add Book">
+	<input type="submit" title="Add a book entry to the Journal" value="Add Book">
 	</form>
 </c:when>
 </c:choose>
@@ -170,13 +176,13 @@
 <div class="col-sm-2">
 <form action="previousLog.clc" method="GET">
 <input name="id" value="${log.id }" hidden="true" >
-<input type="submit" value="Previous">
+<input type="submit" title="View previous journal entry" value="Previous">
 </form></div>
 <div class="col-8"></div>
 <div class="col-sm-2">
 <form action="nextLog.clc" method="GET">
 <input name="id" value="${log.id }" hidden="true" >
-<input type="submit" value="Next">
+<input type="submit" title="View next journal entry" value="Next">
 </form></div>
 
 </div>
