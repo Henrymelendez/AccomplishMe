@@ -57,13 +57,13 @@
       </div>
       <div class="modal-body">
       
-        <form action="">
-        <input type="text" name="" >
+        <form action="addPhoto.user" method="post" id="photoForm">
+        <input type="text" name="photoURL" >
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-primary">
+        <input type="submit" class="btn btn-primary" onclick="document.getElementById('photoForm').submit();">
       </div>
     </div>
   </div>

@@ -30,7 +30,7 @@
   <a class="dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
   <c:choose>
   <c:when test="${! empty user.userPhoto }">
-   <img src="${user.userPhoto }" alt="" class="userProfile" title="User Options" style="border-radius: 50%; height: 12vh;">
+   <img src="${user.userPhoto }" alt="" class="userProfile" title="User Options" style="border-radius: 50%; height:12vh; ">
   </c:when>
   <c:otherwise>
     <img src="images/Intersect.png" alt="" class="userProfile" title="User Options">
