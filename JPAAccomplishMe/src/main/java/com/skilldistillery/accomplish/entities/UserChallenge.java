@@ -192,7 +192,7 @@ public class UserChallenge {
 
 	public ChallengeLog getMostRecent() {
 		if ((mostRecent == null || !mostRecent.getActive()) && !challengeLogs.isEmpty()) {
-			challengeLogs.sort((c1, c2) -> c1.getEntryDate().compareTo(c2.getEntryDate()));
+			challengeLogs.sort((c1, c2) -> c2.getEntryDate().compareTo(c1.getEntryDate()));
 			for (int i = 0; i < challengeLogs.size(); i++) {
 				if(challengeLogs.get(i).getActive()) {
 					mostRecent = challengeLogs.get(i);
