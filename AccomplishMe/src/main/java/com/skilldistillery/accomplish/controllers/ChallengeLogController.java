@@ -119,11 +119,14 @@ public class ChallengeLogController {
 		ChallengeLog log = logDao.findById(id);
 		User user = (User) session.getAttribute("user");
 		
+		
+		
 		List<ChallengeLog> challengeLogs = user.getCurrentUserChallenge().getChallengeLogs();
+		challengeLogs.sort((c1, c2) -> c2.getEntryDate().compareTo(c1.getEntryDate()));
 		for (ChallengeLog challengeLog : challengeLogs) {
-			if(challengeLog.getId() < id) {
+			if(challengeLog.getEntryDate().compareTo(log.getEntryDate()) < 0) {
 				log = challengeLog;
-				
+				break;
 			}
 		}
 		redir.addFlashAttribute("log", log);
@@ -136,6 +139,7 @@ public class ChallengeLogController {
 	User user = (User) session.getAttribute("user");
 	
 	List<ChallengeLog> challengeLogs = user.getCurrentUserChallenge().getChallengeLogs();
+	challengeLogs.sort((c1, c2) -> c1.getEntryDate().compareTo(c2.getEntryDate()));
 	for (ChallengeLog challengeLog : challengeLogs) {
 		if(challengeLog.getId() > id) {
 			log = challengeLog;
