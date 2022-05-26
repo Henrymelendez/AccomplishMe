@@ -1,3 +1,6 @@
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
+    
     <div class="hero">
         <nav class="navbar" id="onBar">
        <span class="logo">
@@ -25,7 +28,14 @@
 
  <div class="dropdown">
   <a class="dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+  <c:choose>
+  <c:when test="${! empty user.userPhoto }">
+   <img src="${user.userPhoto }" alt="" class="userProfile" title="User Options" style="border-radius: 50%; height: 12vh;">
+  </c:when>
+  <c:otherwise>
     <img src="images/Intersect.png" alt="" class="userProfile" title="User Options">
+  </c:otherwise>
+  </c:choose>
   </a>
 
   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-xxl-start" aria-labelledby="dropdownMenuLink">
