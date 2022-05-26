@@ -14,6 +14,10 @@ h1, h2, h3, h4, h5, h6{
 	height: 40vh;
 	overflow-y: scroll;
 }
+.scroll-xl{
+	height: 60vh;
+	overflow-y: scroll;
+}
 
 .centerHeading{
 	justify-content: center;
