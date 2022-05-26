@@ -15,7 +15,7 @@
 </div>
  
 
-<div class="container-xl px-4 mt-4">
+<div class="container-xl px-4 mt-4 container-fluid">
 <!-- Account page navigation-->
             <nav class="nav nav-borders">
         
@@ -32,11 +32,11 @@
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <img id="userPhoto" class="img-account-profile rounded-circle mb-2" src="${user.userPhoto }" alt="">
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                     <!-- Profile picture upload button-->
-                    <button class="btn btn-primary" type="button">Upload new image</button>
+                    <button class="btn btn-primary disabled" type="button">Upload new image</button>
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
 </div>
 
 
-</div>
 
 </body>
+<%@ include file="../JSInclude.jsp" %>
 </html>

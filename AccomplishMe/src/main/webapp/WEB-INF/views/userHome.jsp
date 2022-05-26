@@ -20,33 +20,35 @@
 		<c:set var="userChallenge" value="${user.currentUserChallenge }"></c:set>
 	</c:when>	
 	</c:choose>
-
+<br><br>
  <div class="row" >
 <div class="col-4">
 <c:choose>
 <c:when test="${! empty userChallenge}">
-	<h2>Challenge: ${userChallenge.challenge.name}</h2>
+	<h3>${userChallenge.challenge.name}</h3>
 	<p>${userChallenge.challenge.description}</p>
+	<h5>Goals:</h5>
+	<p>${userChallenge.details}</p>
 	<br>
 	<br>
 	<br>
 </c:when>
 <c:otherwise>
-<h2>No Challenge Selected</h2>
+<h3>No Challenge Selected</h3>
 <p> Please visit the challenge section to select a challenge!</p>
 </c:otherwise>
 </c:choose>
-	<h2>Friends</h2>
-	<p>Not yet Implemented</p>
+	<h2 class="unImplemented">Friends</h2>
+	<p class="unImplemented">Coming soon!</p>
 </div>
- <div class="col-4 scroll" >
- 	<h2>Journal Entries</h2>
+ <div class="col-4 scroll centerHeading" >
+ 	<h3>Journal Entries</h3>
  	<c:choose>
  	<c:when test="${! empty userChallenge.challengeLogs}">
 	<ul><c:forEach items="${userChallenge.challengeLogs}" var="log" >
 		<c:choose>
 		<c:when test="${! empty log }">
-		<li><a href="viewLogById.clc?id=${log.id }">${log.entryDate }</a></li>
+		<li class="noDot" ><a class="btn btn-primary" href="viewLogById.clc?id=${log.id }">${log.entryDate }</a></li>
 		</c:when>
 		</c:choose>
 	</c:forEach> </ul>
@@ -54,8 +56,8 @@
  	</c:choose>
  </div>
  <div class="col-4 scroll">
- 	<h2><i class="fa fa-users"></i> Friends Feed</h2>
- 	<p>Not yet Implemented</p>
+ 	<h2 class="unImplemented"><i class="fa fa-users"></i> Friends Feed</h2>
+ 	<p class="unImplemented">Coming soon!</p>
  </div>
 
  </div>
@@ -63,7 +65,7 @@
  	 <div class=row>
  <c:choose>
  <c:when test="${! empty message}">
- <h4>${message}</h4>
+ <h4 class="message">${message}</h4>
  </c:when>
  </c:choose>
  </div>

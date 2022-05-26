@@ -15,25 +15,26 @@
 <div class="row">
  <%@ include file="navbar.jsp" %>
 </div>
-<div class="row">
-<h1>${log.entryDate }</h1>
+<div class="row centerHeading">
+<h1 >${log.entryDate }</h1>
 </div>
 <div class="row">
-<div class="col-lg-8">
+<div class="col-4 rightHeading">
 <form action="addlog.clc" method="POST">
-<button type="submit" title="Add a new entry to the Journal" class="btn btn-success">
-Add new Entry
+<button type="submit" title="Add a new entry to the Journal" class="btn btn-success btn-icon">
+<!-- Add new Entry -->
 <i class="fa-solid fa-calendar-plus"></i>
 </button>
 </form>
 </div>
+<div class="col-4"></div>
 <c:choose>
 <c:when test="${! empty log }">
-<div class="col-lg-4">
+<div class="col-4">
 <form action="deletelog.clc" method="POST">
 <input name="id" value="${log.id }" hidden="true">
-<button type="submit" title="Delete this entry from the Journal" class="btn btn-danger"> 
-Delete this Entry
+<button type="submit" title="Delete this entry from the Journal" class="btn btn-danger btn-icon"> 
+<!-- Delete this Entry -->
 <i class="fa-solid fa-trash-can"></i>
 </button>
 </form>
@@ -138,7 +139,7 @@ Delete this Entry
 <form action="addChallengeDetail.cld" method="get">
 	<input name="id" value="${log.id }" hidden="true">
 	<input hidden="true" value="workout" name="name">
-	<input type="submit" title="Add a workout entry to the Journal" value="Add Workout">
+	<button type="submit" title="Add a workout entry to the Journal" value="Add Workout" class="btn btn-success btn-circle"><i class="btn btn-success btn-circle"></i></button>
 	</form>
 </c:when>
 </c:choose>
@@ -149,7 +150,7 @@ Delete this Entry
 <form action="addChallengeDetail.cld" method="get">
 	<input name="id" value="${log.id }" hidden="true">
 	<input hidden="true" value="food" name="name">
-	<input type="submit" title="Add a meal entry to the Journal" value="Add Food">
+	<button type="submit" title="Add a meal entry to the Journal" value="Add Food" class="btn btn-success btn-circle"><i class="btn btn-success btn-circle"></i></button>
 	</form>
 </c:when>
 </c:choose>
@@ -160,7 +161,7 @@ Delete this Entry
 <form action="addChallengeDetail.cld" method="get">
 	<input name="id" value="${log.id }" hidden="true">
 	<input hidden="true" value="book" name="name">
-	<input type="submit" title="Add a book entry to the Journal" value="Add Book">
+	<button type="submit" title="Add a book entry to the Journal" class="btn btn-success btn-circle"><i class="fa fa-plus-circle"></i></button>
 	</form>
 </c:when>
 </c:choose>

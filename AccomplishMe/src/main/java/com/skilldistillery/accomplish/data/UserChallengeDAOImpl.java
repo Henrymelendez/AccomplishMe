@@ -65,4 +65,11 @@ public class UserChallengeDAOImpl implements UserChallengeDAO {
 		return managedUChallenge;
 	}
 
+	@Override
+	public UserChallenge findById(int id) {
+		return em.find(UserChallenge.class, id);
+	}
+	
+	
+
 }

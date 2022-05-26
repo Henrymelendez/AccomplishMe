@@ -88,13 +88,14 @@ public class UserChallengeController {
 		
 		user.setCurrentUserChallenge(null);
 
-		redir.addFlashAttribute("page", "Me");
+		redir.addFlashAttribute("page", "Anything");
+		redir.addFlashAttribute("message", "You'll get the next one!");
 		
 		session.removeAttribute("challenge");
 		
 		session.setAttribute("user", user);
 		
-		return "redirect:startEdit.do";
+		return "redirect:userTasks.user";
 	}
 	
 	@RequestMapping(path="removeChallenge.uch", method = RequestMethod.POST)
@@ -116,6 +117,27 @@ public class UserChallengeController {
 		
 		
 		return "redirect:startEdit.do";
+	}
+	
+	@RequestMapping(path = "completeChallenge.uch", method = RequestMethod.POST)
+	public String completeChallenge(HttpSession session, int id, RedirectAttributes redir) {
+		UserChallenge currentChallenge = ucDao.findById(id);
+		User user = (User) session.getAttribute("user");
+		
+		user.getCurrentUserChallenge().setInProgress(false);
+		user.getCurrentUserChallenge().setComplete(true);
+		user.setCurrentUserChallenge(null);
+		
+		ucDao.completeUserChallenge(currentChallenge);
+		
+	
+		session.setAttribute("user", user);
+		
+		redir.addFlashAttribute("page", "Anything");
+		redir.addFlashAttribute("message", "Congratulations!");
+		
+		
+		return "redirect:userTasks.user";
 	}
 	
 	
