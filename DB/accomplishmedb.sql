@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `birthday` DATE NULL,
   `user_photo_url` VARCHAR(255) NULL,
   `active` TINYINT NOT NULL DEFAULT 1,
-  `visibility_id` INT NOT NULL DEFAULT 1,
+  `visibility_id` INT NULL DEFAULT 1,
   `role_id` INT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
@@ -269,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `challenge_log` (
   `entry_date` DATE NULL,
   `active` TINYINT NOT NULL DEFAULT 1,
   `user_challenge_id` INT NOT NULL,
-  `visibility_id` INT NOT NULL,
+  `visibility_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_challenge_log_user_challenge1_idx` (`user_challenge_id` ASC),
   INDEX `fk_challenge_log_visibility1_idx` (`visibility_id` ASC),
@@ -441,6 +441,8 @@ INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start
 INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (4, 4, 4, 'I need to meditate too!', '2022-05-20', '2022-08-15', 0, 1, 1);
 INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (5, 4, 6, 'read all the classics!', '2021-04-15', '2022-04-15', 1, 0, 1);
 INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (6, 5, 2, 'Write!', '2022-05-01', '2022-06-01', 0, 1, 0);
+INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (7, 5, 3, 'Gotta Eat right', '2022-03-01', '2022-04-01', 1, 0, 1);
+INSERT INTO `user_challenge` (`id`, `user_id`, `challenge_id`, `details`, `start_date`, `end_date`, `complete`, `in_progress`, `active`) VALUES (8, 7, 1, 'I do 365 hard.', '2022-05-01', '2022-07-15', 0, 1, 1);
 
 COMMIT;
 
@@ -517,6 +519,9 @@ INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_servi
 INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (33, 3, 'Magelord', NULL, NULL, 749, 'The duchy is still intact, and Minalin is the reason why, so he\'s now a magelord and has to bring his newly awarded estate into the new magical era.', 2, 1);
 INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (34, 3, 'The Art of War', NULL, NULL, 256, 'Sun Tzu\'s art of war, a classic', 5, 1);
 INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (35, 3, 'Mission Earth', NULL, NULL, 3992, 'L. Ron Hubbard', 4, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (36, 3, 'How to win friends and Influence', NULL, NULL, 291, 'One of the MOST influential novels for social development', 4, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (37, 3, 'Dark Psychology and Gaslighting Manipulation', NULL, NULL, 271, 'Psychological Warfare in Everyday Life.', 1, 1);
+INSERT INTO `challenge_detail` (`id`, `category_id`, `name`, `calories_per_serving`, `MET`, `number_of_pages`, `description`, `creator_id`, `active`) VALUES (38, 3, 'Breaking the Habit of Being Yourself', NULL, NULL, 360, 'Learn how to overcome your past, your genes, and your own ego', 5, 1);
 
 COMMIT;
 
@@ -531,6 +536,17 @@ INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, 
 INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (3, '2022-05-22', 1, 1, 1);
 INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (4, '2022-05-23', 1, 1, 1);
 INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (5, '2022-05-24', 1, 1, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (6, '2022-03-26', 1, 2, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (7, '2022-04-03', 1, 2, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (8, '2022-04-10', 1, 2, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (9, '2022-04-17', 1, 2, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (10, '2022-05-20', 1, 4, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (11, '2022-05-21', 1, 4, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (12, '2022-05-22', 1, 4, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (13, '2022-05-23', 1, 4, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (14, '2022-05-01', 1, 5, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (15, '2022-05-02', 1, 5, 1);
+INSERT INTO `challenge_log` (`id`, `entry_date`, `active`, `user_challenge_id`, `visibility_id`) VALUES (16, '2022-05-03', 1, 5, 1);
 
 COMMIT;
 
@@ -541,6 +557,9 @@ COMMIT;
 START TRANSACTION;
 USE `accomplishmedb`;
 INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (1, 1, 45, NULL, NULL, 1, 1);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (2, 4, 30, NULL, NULL, 1, 1);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (3, 3, NULL, NULL, 15, 1, 1);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (4, 20, NULL, 2, NULL, 1, 1);
 
 COMMIT;
 
