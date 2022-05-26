@@ -379,10 +379,10 @@ COMMIT;
 START TRANSACTION;
 USE `accomplishmedb`;
 INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (1, 'admin', 'password', 60, 130, 'admin', 'main', '2010-03-16', 'https://thumbs.dreamstime.com/b/admin-icon-trendy-design-style-isolated-white-background-vector-simple-modern-flat-symbol-web-site-mobile-logo-app-135742404.jpg', 1, 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (2, 'Mason', 'founder', 71, 206, 'Mason', 'Zuchinni', '1989-07-13', 'https://images.squarespace-cdn.com/content/v1/55b254a0e4b0311bbf89923a/1528995836119-QIVKHVAMCNWFWV2Q5PKS/NYC+4-2018+4+1103.JPG?format=1000w', 1, 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (2, 'Mason', 'founder', 71, 206, 'Nosam', 'Zuchinni', '1989-07-13', 'https://images.squarespace-cdn.com/content/v1/55b254a0e4b0311bbf89923a/1528995836119-QIVKHVAMCNWFWV2Q5PKS/NYC+4-2018+4+1103.JPG?format=1000w', 1, 1, 1);
 INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (3, 'userman', 'userman', 65, 175, 'Guy', 'Manson', '1987-08-15', 'https://image.shutterstock.com/image-photo/generic-white-cauasian-young-adult-600w-59689636.jpg', 1, 2, 2);
-INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (4, 'Chris', 'founder', 73, 175, 'Chris', 'LightBright', '1988-04-14', NULL, 1, 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (5, 'Henry', 'founder', 69, 190, 'Henry', 'Melendor', '1989-11-16', NULL, 1, 2, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (4, 'Chris', 'founder', 73, 175, 'Chris', 'LightBright', '1988-04-14', 'https://www.pngitem.com/pimgs/m/177-1775440_meme-bruh-okay-wacky-what-wow-stock-guy.png', 1, 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (5, 'Henry', 'founder', 69, 190, 'Henry', 'Melendor', '1989-11-16', 'https://i.kym-cdn.com/entries/icons/facebook/000/016/546/hidethepainharold.jpg', 1, 2, 1);
 INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (6, 'deleteduser', 'deleteduser', NULL, NULL, NULL, NULL, '2018-02-16', NULL, 0, 3, 3);
 INSERT INTO `user` (`id`, `username`, `password`, `height`, `weight`, `first_name`, `last_name`, `birthday`, `user_photo_url`, `active`, `visibility_id`, `role_id`) VALUES (7, 'userdude', 'userdude', 77, 180, 'Dude', 'Manson', '1976-05-17', 'https://i.ytimg.com/vi/jRn48HxssPI/maxresdefault.jpg', 1, 1, 2);
 
@@ -580,6 +580,18 @@ INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_mi
 INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (22, 3, NULL, NULL, 12, 1, 5);
 INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (23, 22, NULL, 1, NULL, 1, 5);
 INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (24, 24, NULL, 2, NULL, 1, 5);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (25, 34, NULL, NULL, 256, 1, 6);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (26, 36, NULL, NULL, 291, 1, 7);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (27, 37, NULL, NULL, 271, 1, 8);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (28, 38, NULL, NULL, 360, 1, 9);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (29, 9, 50, NULL, NULL, 1, 10);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (30, 4, 45, NULL, NULL, 1, 10);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (31, 19, NULL, NULL, 10, 1, 10);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (32, 27, NULL, 1, NULL, 1, 10);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (33, 24, NULL, 2, NULL, 1, 10);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (34, 14, 60, NULL, NULL, 1, 11);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (35, 1, 45, NULL, NULL, 1, 11);
+INSERT INTO `challenge_log_detail` (`id`, `challenge_detail_id`, `duration_in_minutes`, `servings_eaten`, `pages_read`, `active`, `challenge_log_id`) VALUES (36, 12, 60, NULL, NULL, 1, 12);
 
 COMMIT;
 
