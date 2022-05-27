@@ -78,7 +78,6 @@ public class ChallengeDetailController {
 		user.removeCreatedChallengeDetail(removeMe);
 		
 		removeMe = cdDao.removeDetail(removeMe);
-		user.addCreatedChallengeDetail(removeMe);
 		
 		session.setAttribute("user", user);
 		redir.addFlashAttribute("page", "Anything");

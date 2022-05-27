@@ -65,7 +65,7 @@
 	  <!-- One "tab" for each step in the form: -->
 	  <div class="tab">Book Info:
 	    <p><input value="${detail.name }"  name="name"></p>
-	    <p><input value="${detail.details }"  name="description"></p>
+	    <p><input value="${detail.description }"  name="description"></p>
 	    <p><input value="${detail.numberPages }" name="numberPages"></p>
 	     <input hidden="true" name="id" value="${detail.id }">
 	  </div>

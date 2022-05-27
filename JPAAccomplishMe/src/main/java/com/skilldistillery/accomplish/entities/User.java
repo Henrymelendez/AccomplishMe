@@ -368,7 +368,7 @@ public class User {
 		
 		if(createdChallengeDetails != null && !createdChallengeDetails.isEmpty()) {
 			for (ChallengeDetail detail : createdChallengeDetails) {
-				if(detail.getCategory().getName().equals("workout")) {
+				if(detail.getCategory().getName().equals("workout") && detail.getActive()) {
 					cld.add(detail);
 				}
 			}
@@ -383,7 +383,7 @@ public class User {
 		
 		if(createdChallengeDetails != null && !createdChallengeDetails.isEmpty()) {
 			for (ChallengeDetail detail : createdChallengeDetails) {
-				if(detail.getCategory().getName().equals("food")) {
+				if(detail.getCategory().getName().equals("food") && detail.getActive()) {
 					cld.add(detail);
 				}
 			}
@@ -397,7 +397,7 @@ public class User {
 		
 		if(createdChallengeDetails != null && !createdChallengeDetails.isEmpty()) {
 			for (ChallengeDetail detail : createdChallengeDetails) {
-				if(detail.getCategory().getName().equals("book")) {
+				if(detail.getCategory().getName().equals("book") && detail.getActive()) {
 					cld.add(detail);
 				}
 			}

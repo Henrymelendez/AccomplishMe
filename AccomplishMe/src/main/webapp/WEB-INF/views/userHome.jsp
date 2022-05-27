@@ -16,9 +16,14 @@
 </div>
 	
 	<c:choose>
-	<c:when test="${! empty user.currentUserChallenge}">
-		<c:set var="userChallenge" value="${user.currentUserChallenge }"></c:set>
-	</c:when>	
+	<c:when test="${! empty user.userChallenges}">
+		<c:if test="${! empty user.currentUserChallenge }">
+			<c:set var="userChallenge" value="${user.currentUserChallenge }"></c:set>
+		</c:if>
+	</c:when>
+	<c:otherwise>
+		<c:set var="userChallenge" value="${null }"></c:set>
+	</c:otherwise>
 	</c:choose>
 <br><br>
  <div class="row" >

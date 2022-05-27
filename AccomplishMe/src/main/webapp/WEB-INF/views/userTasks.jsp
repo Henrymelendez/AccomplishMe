@@ -114,14 +114,14 @@ Create A Book
 	<td>${t.met }</td>
 	  <td>
 		
-		 <form id="${t.name}_edit" method="get" action="editDetail.cdc"><input type="text" name="id" value="${t.id}" hidden="true"> </form>
-	  	<form id="${t.name}_delete" method="post" action="deleteDetail.cdc"><input type="text" name="id" value="${t.id}" hidden="true"></form>
+		 <form id="${t.id}_edit" method="get" action="editDetail.cdc"><input type="text" name="id" value="${t.id}" hidden="true"> </form>
+	  	<form id="${t.id}_delete" method="post" action="deleteDetail.cdc"><input type="text" name="id" value="${t.id}" hidden="true"></form>
 		 
 		
 		
-		  <a href="#" class="btn btn-warning" title="Edit this Workout" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
+		  <a href="#" class="btn btn-warning" title="Edit this Workout" onclick="document.getElementById('${t.id}_edit').submit();"><i class="fas fa-edit"></i></a>
 		 
-		 | <a class="btn btn-danger" title="Remove this Workout" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> 
+		 | <a class="btn btn-danger" title="Remove this Workout" onclick="document.getElementById('${t.id}_delete').submit();" ><i class="fas fa-trash"></i></a> 
 		
 	</td>
 	</tr>
@@ -148,14 +148,14 @@ Create A Book
 	<td>${t.calories }</td>
 	  <td>
 		
-		 <form id="${t.name}_edit" method="get" action="editChallenge.ch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
-	  	<form id="${t.name}_delete" method="post" action="deleteChallenge.ch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
+		 <form id="${t.id}_edit" method="get" action="editDetail.cdc"><input type="text" name="id" value="${t.id}" hidden="true"></form>
+	  	<form id="${t.id}_delete" method="post" action="deleteDetail.cdc"><input type="text" name="id" value="${t.id}" hidden="true"></form>
 		 
 		
 		
-		  <a href="#" class="btn btn-warning" title="Edit this food item" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
+		  <a href="#" class="btn btn-warning" title="Edit this food item" onclick="document.getElementById('${t.id}_edit').submit();"><i class="fas fa-edit"></i></a>
 		 
-		 | <a class="btn btn-danger" title="Remove this Food item" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> 
+		 | <a class="btn btn-danger" title="Remove this Food item" onclick="document.getElementById('${t.id}_delete').submit();" ><i class="fas fa-trash"></i></a> 
 	
 	</td>
 	</tr>
@@ -184,13 +184,13 @@ Create A Book
 	<td style="max-width: 300px;">${t.description }</td>
 	<td>${t.numberPages }</td>
 	  <td>
-		 <form id="${t.name}_edit" method="get" action="editChallenge.ch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
-	  	<form id="${t.name}_delete" method="post" action="deleteChallenge.ch"><input type="text" name="id" value="${t.id}" hidden="true"></form>
+		 <form id="${t.id}_edit" method="get" action="editDetail.cdc"><input type="text" name="id" value="${t.id}" hidden="true"></form>
+	  	<form id="${t.id}_delete" method="post" action="deleteDetail.cdc"><input type="text" name="id" value="${t.id}" hidden="true"></form>
 		 
 		 
-		  <a href="#" class="btn btn-warning" title="Edit this Book" onclick="document.getElementById('${t.name}_edit').submit();"><i class="fas fa-edit"></i></a>
+		  <a href="#" class="btn btn-warning" title="Edit this Book" onclick="document.getElementById('${t.id}_edit').submit();"><i class="fas fa-edit"></i></a>
 		 
-		 | <a class="btn btn-danger" title="Remove this Book" onclick="document.getElementById('${t.name}_delete').submit();" ><i class="fas fa-trash"></i></a> 
+		 | <a class="btn btn-danger" title="Remove this Book" onclick="document.getElementById('${t.id}_delete').submit();" ><i class="fas fa-trash"></i></a> 
 		
 	</td>
 	</tr>

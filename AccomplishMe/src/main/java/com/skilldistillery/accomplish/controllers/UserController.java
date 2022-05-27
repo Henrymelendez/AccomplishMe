@@ -42,17 +42,13 @@ public class UserController {
 	@RequestMapping(path= "createUser.do", method = RequestMethod.POST)
 	public String createNewUser(HttpSession session, RedirectAttributes redir, Integer feet, Integer inches, String firstName,
 			String lastName, Double weight, String username, String password) {
-		String view = "views/userHome";
+		String view = "home";
 		Double height = (double)((feet * 12) + inches);
 		User user = new User(username, password, height, weight, firstName, lastName, true);
-		userDAO.createaUser(user);	
+		user = userDAO.createaUser(user);
 		
-		if (user.getId() != 0) {
-			session.setAttribute("user", user);
-		} else {
-			redir.addFlashAttribute("message", "Username is taken");
-			view = "redirect:login.do";
-		}
+	
+		
 		
 		return view;
 	}
