@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
      
     
      
@@ -79,7 +78,7 @@
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
-                    <form>
+                    <form action="editUser.do" method="post">
                         <!-- Form Group (username)-->
                         <div class="mb-3">
                          <h2>${user.firstName} ${user.lastName}</h2>
@@ -89,6 +88,7 @@
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputFirstName">First name</label>
+                                <input hidden="true" id="" type="text"  value="${user.id}" name="id">
                                 <input class="form-control" id="inputFirstName" type="text"  value="${user.firstName }" name="firstName">
                             </div>
                             <!-- Form Group (last name)-->
@@ -103,11 +103,11 @@
                             <!-- Form Group (current password)-->
                             <div class="mb-3">
                                 <label>Height</label> <input type="text" value="${user.feet}" name="feet"> <input type="text" value="${user.inches}" name="inches">
-    							<label>Weight (lbs)</label><input type="text" value="${user.weight}" name= weight>
+    							<label>Weight (lbs)</label><input type="text" value="${user.weight}" name="weight">
                             </div>
                             <!-- Form Group (new password)-->
                           
-                            <!-- Form Group (confirm password          
+                            <!-- Form Group (confirm password  -->        
                             
                             
                         
@@ -117,7 +117,7 @@
                           
                         
                         <!-- Save changes button-->
-                        <button class="btn btn-primary" type="button">Save changes</button>
+                        <button class="btn btn-primary" type="submit">Save changes</button>
                     </form>
                 </div>
             </div>
@@ -127,17 +127,18 @@
 
 
 
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-<script >
+<!-- <script >
 var myModal = document.getElementById('myModal')
 var myInput = document.getElementById('myInput')
 
 myModal.addEventListener('shown.bs.modal', function () {
   myInput.focus()
 })
-</script>
+</script> -->
 <%@ include file="../JSInclude.jsp" %>
-</body>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+ --></body>
 </html>

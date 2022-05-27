@@ -107,13 +107,21 @@ public class UserController {
 		return mv;
 	}
 	
-	@RequestMapping(path= "editUser.do")
-	public ModelAndView editUser(User user, Integer feet, Integer inches, HttpSession session) {
+	@RequestMapping(path= "editUser.do", method = RequestMethod.POST)
+	public ModelAndView editUser(User user, Integer feet, Integer inches, HttpSession session, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-		user.setHeight((double)((feet*12) + inches));
-		user = userDAO.editUser(user);
-		session.setAttribute("user", user);
-		mv.setViewName("views/userHome");
+		
+		User sessionUser = (User) session.getAttribute("user");
+		
+		sessionUser.setHeight((double)((feet*12) + inches));
+		sessionUser.setFirstName(user.getFirstName());
+		sessionUser.setLastName(user.getLastName());
+		sessionUser.setWeight(user.getWeight());
+		
+		user = userDAO.editUser(sessionUser);
+		
+		session.setAttribute("user", sessionUser);
+		mv.setViewName("redirect:startEdit.do");
 		return mv;
 	}
 	
